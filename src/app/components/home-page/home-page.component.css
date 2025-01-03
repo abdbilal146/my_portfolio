@@ -21,10 +21,18 @@
     height: 500px;
     border-radius: 50%;
     animation: fadeIn 2s ease-in-out;
-    box-shadow: 0px 0px 10px 3px rgba(33, 21, 201, 0.76);
-    
+    box-shadow: 0px 0px 10px 3px rgba(33, 21, 201, 0.76);   
 }
 
+@media (max-width: 600px) {
+    .image-container{
+        width: 250px;
+        height: 250px;
+        top: 07vh;
+        left: 50vw;
+        transform: translateX(-50%);
+    }
+}
 @keyframes fadeIn{
     0% {
         opacity: 0;
