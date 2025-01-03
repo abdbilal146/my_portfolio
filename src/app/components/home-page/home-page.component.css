@@ -24,15 +24,6 @@
     box-shadow: 0px 0px 10px 3px rgba(33, 21, 201, 0.76);   
 }
 
-@media (max-width: 600px) {
-    .image-container{
-        width: 250px;
-        height: 250px;
-        top: 07vh;
-        left: 50vw;
-        transform: translateX(-50%);
-    }
-}
 @keyframes fadeIn{
     0% {
         opacity: 0;
@@ -48,9 +39,9 @@
     top: 50%;
     left: 20%;
     transform: translateY(-50%);
-    
-    
+      
 }
+
 
 .text-container h1{
     font-family: sans-serif;
@@ -70,4 +61,25 @@
 @keyframes blink-caret {
     from, to { border-color: transparent }
     50% { border-color: rgba(33, 21, 201, 0.76); }
+}
+
+@media (max-width: 600px) {
+    .image-container{
+        width: 250px;
+        height: 250px;
+        top: 07vh;
+        left: 50vw;
+        transform: translateX(-50%);
+    }
+}
+
+
+@media (max-width: 420px) and (max-height: 920px) {
+    .text-container{
+        top: 70%;
+    }
+    .text-container h1{
+        font-size: 25px;
+    }
+    
 }

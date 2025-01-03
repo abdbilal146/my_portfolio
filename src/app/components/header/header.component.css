@@ -40,3 +40,10 @@
         font-size: 14px;
     }
 }
+
+@media (max-width: 420px) and (max-height: 920px) {
+    .header-container ul li{
+        font-size: 12px;
+    }
+    
+}
