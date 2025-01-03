@@ -1,0 +1,43 @@
+.contact-page-container{
+    margin: 0;
+    height: 200px;
+    position: absolute;
+    top: 7vh;
+    left: 0;
+    width: 100%;
+    height: 80vh;  
+    background: linear-gradient(135deg, rgba(33, 21, 201, 0.76), rgba(128, 105, 255, 0.8), rgba(0, 213, 255, 0.346));;
+}
+
+.title-container{
+    position: absolute;
+    top: 5vh;
+    left: 50vw;
+    transform: translateX(-50%) ;
+}
+
+.title-container h1{
+    font-family: sans-serif;
+}
+
+.contact-us-container{
+    position: absolute;
+    top: 30vh;
+    left: 50vw;
+    transform: translateX(-50%) ;
+    margin: 0;
+    padding: 0;
+}
+
+.contact-us-container ul{
+    display: flex;
+    list-style: none;
+    gap: 20vw;
+    padding-left: 0;
+    
+}
+
+.contact-us-container ul li i{
+    font-size: 30px;
+    
+}
