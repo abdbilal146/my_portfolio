@@ -23,4 +23,8 @@ export class HeaderComponent {
     goToContactPage(){
       this.router.navigate(['contact-me'])
     }
+
+    goToAboutMePage():void{
+      this.router.navigate(['about-me'])
+    }
 }

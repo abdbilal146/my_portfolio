@@ -33,3 +33,7 @@
     text-decoration: none;
     color: rgba(33, 21, 201, 0.76);
 }
+
+.social-container ul li a i:hover{
+    transform: scale(1.2);
+}

@@ -28,7 +28,13 @@
     border: solid 2px rgba(33, 21, 201, 0.76);
     border-radius: 20px;
     box-shadow:0px 0px 10px 3px rgba(33, 21, 201, 0.76);
+    transition: all 0.7s linear;
     
+}
+
+.cards:hover{
+    cursor: pointer;
+    transform: scale(1.02);
 }
 
 .cards-title-container{
@@ -51,6 +57,7 @@
     .skills-card-container{
         display: block;
         overflow-y: scroll;
+        overflow-x: hidden;
         scrollbar-width: none;
     }
 
