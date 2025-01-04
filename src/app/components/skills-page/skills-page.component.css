@@ -6,92 +6,59 @@
     left: 0;
     width: 100%;
     height: 80vh;  
-    background: linear-gradient(135deg, rgba(33, 21, 201, 0.76), rgba(128, 105, 255, 0.8), rgba(0, 213, 255, 0.346));;
+    background: #3586ff;
 }
 
-.image-container{
+.skills-card-container{
     position: absolute;
-    right: 10%;
     top: 50%;
-    transform: translateY(-50%);
-    background-image: url('/assets/my_photo.png');
-    background-size: cover;
-    background-position: center;
-    width: 500px;
-    height: 500px;
-    border-radius: 50%;
-    animation: fadeIn 2s ease-in-out;
-    box-shadow: 0px 0px 10px 3px rgba(33, 21, 201, 0.76);   
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 80%;
+    display: inline-flex;
+    justify-content: space-between;
 }
 
-@keyframes fadeIn{
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
-.text-container{
+.cards {
+    background: #3586ff;
+    text-wrap: pretty;
+    width: 17vw;
+    margin: 3%;
+    border: solid 2px rgba(33, 21, 201, 0.76);
+    border-radius: 20px;
+    box-shadow:0px 0px 10px 3px rgba(33, 21, 201, 0.76);
     
-    position: absolute;
-    top: 50%;
-    left: 20%;
-    transform: translateY(-50%);
-      
 }
 
-
-.text-container h1{
-    font-family: sans-serif;
-    font-size: 50px;
-    overflow: hidden;
-    border-right: 3px solid rgba(33, 21, 201, 0.76);
-    animation: typing 3.5s steps(40, end),blink-caret .6s step-end infinite;
-}
-
-/* The typing effect */
-@keyframes typing {
-    from { width: 0 }
-    to { width: 100% }
-}
-  
-  /* The typewriter cursor effect */
-@keyframes blink-caret {
-    from, to { border-color: transparent }
-    50% { border-color: rgba(33, 21, 201, 0.76); }
-}
-
-.text-container p{
-    font-size: 20px;
+.cards-title-container{
+    text-wrap: wrap;
+    text-align: center;
     font-family: sans-serif;
     color: white;
-    font-weight: 600;
-}
-.text-container p span{
-    font-size: 25px;
-    color: black;
 }
 
-@media (max-width: 600px) {
-    .image-container{
-        width: 250px;
-        height: 250px;
-        top: 07vh;
-        left: 50vw;
-        transform: translateX(-50%);
-        font-size: 25px;
+.cards-title-container ul{
+    display: block;
+    padding-top:25px ;
+    list-style: decimal;
+}
+.cards-title-container ul li{
+    padding-top:25px ;
+}
+
+@media (max-width: 600px) and (max-height: 935px) {
+    .skills-card-container{
+        display: block;
+        overflow-y: scroll;
+        scrollbar-width: none;
     }
-}
 
-
-@media (max-width: 600px) and (max-height: 920px) {
-    .text-container{
-        top: 70%;
-    }
-    .text-container h1{
-        font-size: 25px;
+    .cards {
+        background: #3586ff;
+        width: 75vw;
+       
+    
     }
     
 }
