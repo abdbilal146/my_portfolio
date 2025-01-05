@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Cards } from '../models/cards';
 import { CommonModule } from '@angular/common';
+import { Meta, Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-skills-page',
@@ -32,5 +33,16 @@ export class SkillsPageComponent {
       second_category : ''
     }
   ]
+
+
+  constructor(private meta:Meta, private title : Title){}
+
+
+  ngOnInit(): void {
+    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+    //Add 'implements OnInit' to the class.
+    this.title.setTitle('Mes Compétences');
+    this.meta.updateTag({name:'description', content:'Bilal Mancer Skills page'});
+  }
 
 }

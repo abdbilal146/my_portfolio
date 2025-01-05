@@ -5,15 +5,23 @@
     top: 7vh;
     left: 0;
     width: 100%;
-    height: 80vh;  
+    height: 130vh;  
     background: #3586ff;
 }
 
 .contenu-container{
     margin: 3%;
+    overflow-y: scroll;
+    scrollbar-width: none;
 }
 
 .contenu-container p {
     font-family: sans-serif;
     font-size: 20px;
+}
+
+@media (max-width: 600px) and (max-height: 935px){
+    .contact-page-container{
+        height: 215vh;
+    } 
 }

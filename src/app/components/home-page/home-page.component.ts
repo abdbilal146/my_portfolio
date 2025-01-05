@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Meta, Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-home-page',
@@ -9,4 +10,14 @@ import { Component } from '@angular/core';
 })
 export class HomePageComponent {
 
+  constructor(private title:Title, private meta:Meta){}
+
+
+  ngOnInit(): void {
+    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+    //Add 'implements OnInit' to the class.
+    this.title.setTitle('Acceuil');
+    this.meta.updateTag({name:'description', content:'Hello , my name is Abd-ElFetah (Bilal) Mancer, this is my portfolio'});
+    
+  }
 }

@@ -63,6 +63,15 @@
         display: block;
     }
 
+    .contact-us-container{
+        top: 29vh;
+    }
+
+    .contact-us-content-container{
+        text-align: center;
+        top: 35vh;
+    }
+
     .contact-us-content-container ul {
         display: block;
     
