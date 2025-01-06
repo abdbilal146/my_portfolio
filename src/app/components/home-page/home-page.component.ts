@@ -21,7 +21,8 @@ export class HomePageComponent {
     this.meta.addTags([
       {name:'keywords', content:'portfolio, web developer, angular, frontend'},
       {name:'author',content:'Bilal Mancer'},
-      {property:'og:url', content:'https://mancerbilal.netlify.app/'}
+      {property:'og:url', content:'https://mancerbilal.netlify.app/'}, 
+      {name:'google-site-verification',content:'mPmHyWfMqcaDuddfT_Kb9PHF8jF0eSM4wDUB2MAsGs0'}
     ])
     
   }
