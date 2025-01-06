@@ -27,7 +27,7 @@
                 "output": "/"
               },
               "src/assets",
-              "_redirects"
+              "src/_redirects"
               
             ],
             "styles": [
