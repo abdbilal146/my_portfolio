@@ -12,6 +12,7 @@
 .contenu-container{
     margin: 3%;
     overflow-y: scroll;
+    overflow-x: hidden;
     scrollbar-width: none;
 }
 
