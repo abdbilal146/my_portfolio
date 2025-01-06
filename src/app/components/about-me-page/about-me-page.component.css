@@ -25,3 +25,9 @@
         height: 215vh;
     } 
 }
+
+@media (max-width: 380px){
+    .contact-page-container{
+        height: 280vh;
+    } 
+}

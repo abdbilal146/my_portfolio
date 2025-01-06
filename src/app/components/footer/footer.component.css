@@ -39,3 +39,9 @@
 .social-container ul li a i:hover{
     transform: scale(1.2);
 }
+
+@media (max-width: 600px) and (max-height: 935px){
+    .social-container{
+        top: 1vh;
+    } 
+}
