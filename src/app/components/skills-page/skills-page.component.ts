@@ -43,6 +43,9 @@ export class SkillsPageComponent {
     //Add 'implements OnInit' to the class.
     this.title.setTitle('Mes Compétences');
     this.meta.updateTag({name:'description', content:'Bilal Mancer Skills page'});
+    this.meta.addTags([
+      {name:'keywords', content:'portfolio, web developer, angular, frontend'}
+    ])
   }
 
 }
