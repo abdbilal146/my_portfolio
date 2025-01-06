@@ -18,6 +18,11 @@ export class HomePageComponent {
     //Add 'implements OnInit' to the class.
     this.title.setTitle('Acceuil');
     this.meta.updateTag({name:'description', content:'Hello , my name is Abd-ElFetah (Bilal) Mancer, this is my portfolio'});
+    this.meta.addTags([
+      {name:'keywords', content:'portfolio, web developer, angular, frontend'},
+      {name:'author',content:'Bilal Mancer'},
+      {property:'og:url', content:'https://mancerbilal.netlify.app/'}
+    ])
     
   }
 }
