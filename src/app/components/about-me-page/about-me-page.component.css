@@ -12,11 +12,6 @@
 .contenu-container{
     position: absolute;
     margin: 3%;
-    overflow-y: scroll;
-    overflow-x: hidden;
-    scrollbar-width: none;
-    height: 80vh;
-    background: white;
 }
 
 .contenu-container p {
@@ -29,12 +24,20 @@
         height: 80vh;
     } 
     .contenu-container{
-        height: 80vh;
+        height: 70vh;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        scrollbar-width: none;
     }
 }
 
 @media (max-width: 380px){
     .contact-page-container{
-        height: 90vh;
-    } 
+        height: 80vh;
+    }
+    .contenu-container{
+        overflow-y: scroll;
+        overflow-x: hidden;
+        scrollbar-width: none;
+    }
 }
