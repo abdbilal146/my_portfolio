@@ -2,7 +2,7 @@
     <div>
         <div class="menu">
             <ul>
-                <li *ngFor="let categorie of categoris" (click)="showVideoSection(categorie)">{{categorie.name}}</li>
+                <li *ngFor="let categorie of categories" (click)="showVideoSection(categorie, categorie.id)"><span>{{categorie.name}}</span></li>
             </ul>
         </div>
         <div class="contenu-container" *ngIf="videoSectionEnabled">
@@ -10,7 +10,7 @@
         </div>
     </div>
     <div class="btn-container">
-        <div>Next</div>
-        <div>Previous</div>
+        <div (click)="previousVideo()"><i class="fa-solid fa-arrow-left previous"></i></div>
+        <div (click)="nextVideo()"><i class="fa-solid fa-arrow-right next"></i></div>
     </div>
 </div>

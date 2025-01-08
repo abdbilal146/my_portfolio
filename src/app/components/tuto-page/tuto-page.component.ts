@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, Input, Sanitizer } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { VideoCategory } from '../models/video-category';
+import { NestedVideoArray } from '../models/nested-of-video-array';
 
 @Component({
   selector: 'app-tuto-page',
@@ -12,7 +13,38 @@ import { VideoCategory } from '../models/video-category';
 })
 export class TutoPageComponent {
 
-  categoris: Array<VideoCategory> = [
+  categories : Array<NestedVideoArray> = [
+    {
+      id: 1,
+      name: "TypeScript",
+      video: [
+        {
+          id: 1,
+          name: 'TypeScript',
+          url:'https://www.youtube.com/embed/XDz0LstP9Ko?si=pXn9WU1-DEhxu79r'
+        },
+        {
+          id: 2,
+          name: 'TypeScript',
+          url:'https://www.youtube.com/embed/U7QBiqxcTYo?si=xLEeHs6C8lnBpieg'
+        }
+      ]
+    },
+
+    {
+      id: 2,
+      name: "Playwright",
+      video: [
+        {
+          id: 1,
+          name: 'TypeScript',
+          url:'https://www.youtube.com/embed/D9N3d3Kai58?si=uLzk14Q9p5FyxsP1'
+        }
+      ]
+    }
+  ]
+
+  /*categoris: Array<VideoCategory> = [
     {
       id: 1,
       name: 'TypeScript',
@@ -30,7 +62,10 @@ export class TutoPageComponent {
     },
 
   ]
+  */
   firstCategory: string = ''
+  currentTutoId : number = 0 ;
+  currendVideoId = 0 ;
 
   videoSectionEnabled: boolean = false;
   videoUrl: string = '';
@@ -48,15 +83,45 @@ export class TutoPageComponent {
 
 
   // this methode to change the display depending on the categorie
-  showVideoSection(category:VideoCategory):void{
-      this.videoUrl = category.url
+  showVideoSection(category:NestedVideoArray, currentTutoId:number):void{
+      this.currentTutoId = currentTutoId-1;
+      this.currendVideoId = 0;
+      this.videoUrl = category.video[this.currendVideoId].url
       this.safeVideoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.videoUrl)
-      this.videoSectionEnabled = true;
+      this.videoSectionEnabled = true; 
   }
 
   //this method to create caroussel
 
-  currendVideoId = 0 ;
+  getTheCurrentVideo(){
+    return this.categories[this.currentTutoId].video[this.currendVideoId].url
+  }
 
-  
+  nextVideo():void{
+
+    if(this.currendVideoId < this.categories[this.currentTutoId].video.length -1){
+      this.currendVideoId++
+    }
+    else{
+      this.currendVideoId=0
+    }
+    this.videoUrl = this.categories[this.currentTutoId].video[this.currendVideoId].url;
+    this.safeVideoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.videoUrl)
+
+    console.log('Hello')
+
+  }
+
+  previousVideo() : void{
+    if(this.currendVideoId > 0){
+      this.currendVideoId--
+    }
+    else{
+      this.currendVideoId = this.categories[this.currentTutoId].video.length-1
+    }
+
+    this.videoUrl = this.categories[this.currentTutoId].video[this.currendVideoId].url;
+    this.safeVideoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.videoUrl)
+  }
+
 }

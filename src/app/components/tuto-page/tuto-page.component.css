@@ -11,7 +11,7 @@
 }
 
 .menu{
-    background: #3586ffda;
+    background: #3586ff72;
     position: absolute;
     right: 0;
     top: 0;
@@ -27,16 +27,24 @@
     right: 0;
     top: 0;
     padding: 0;
+    margin-top: 5px;
 }
 
 .menu ul li {
-    background: red;
-    height: 5vh;
-    text-align: center;
+    font-family: sans-serif;
+    font-weight: 600;
+    color: white;
+    font-size: 20px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding-left: 10px;
+    height: 50px;
 }
 
 .menu ul li:hover{
     cursor: pointer;
+    background-color: #3586ff;
 }
 
 .contenu-container{
@@ -49,18 +57,19 @@
 }
 .contenu-container iframe{
     width: 100%;
-    height: 80vh;
+    height: 75vh;
 }
 
 
 .btn-container{
     position: absolute;
-    background: red;
+    background: #fcfcfcda;
     bottom: 0;
     right: 20vw;
     left: 0;
     display: flex;
 }
+
 .btn-container div{
     width: 50%;
     text-align: center;
@@ -69,4 +78,22 @@
 
 .btn-container div:hover{
     cursor: pointer;
+    background: #3586ff91;
+
+}
+
+.btn-container div i {
+    font-size: 2.5vh;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: all 0.5s linear;
+}
+
+.btn-container div:hover .next{
+    transform: translateY(-50%) translateX(200%)
+}
+
+.btn-container div:hover .previous{
+    transform: translateY(-50%) translateX(-200%)
 }
