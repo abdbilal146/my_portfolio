@@ -20,11 +20,15 @@ export class HeaderComponent {
       this.router.navigate([''])
     }
 
-    goToContactPage(){
+    goToContactPage():void{
       this.router.navigate(['contact-me'])
     }
 
     goToAboutMePage():void{
       this.router.navigate(['about-me'])
+    }
+
+    goToTutoPage():void{
+      this.router.navigate(['tuto'])
     }
 }

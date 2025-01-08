@@ -1,0 +1,16 @@
+<div class="home-page-container">
+    <div>
+        <div class="menu">
+            <ul>
+                <li *ngFor="let categorie of categoris" (click)="showVideoSection(categorie)">{{categorie.name}}</li>
+            </ul>
+        </div>
+        <div class="contenu-container" *ngIf="videoSectionEnabled">
+            <iframe width="560" height="315" [src]="safeVideoUrl" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+    </div>
+    <div class="btn-container">
+        <div>Next</div>
+        <div>Previous</div>
+    </div>
+</div>

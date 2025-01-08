@@ -1,0 +1,72 @@
+.home-page-container{
+    perspective: 1000px;
+    margin: 0;
+    height: 200px;
+    position: absolute;
+    top: 7vh;
+    left: 0;
+    width: 100%;
+    height: 80vh;  
+    background: #ffffff;
+}
+
+.menu{
+    background: #3586ffda;
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 20vw;
+}
+
+.menu ul{
+    list-style: none;
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    padding: 0;
+}
+
+.menu ul li {
+    background: red;
+    height: 5vh;
+    text-align: center;
+}
+
+.menu ul li:hover{
+    cursor: pointer;
+}
+
+.contenu-container{
+    position: absolute;
+    background: black;
+    right: 20vw;
+    left: 0;
+    top: 0;
+    bottom: 0;
+}
+.contenu-container iframe{
+    width: 100%;
+    height: 80vh;
+}
+
+
+.btn-container{
+    position: absolute;
+    background: red;
+    bottom: 0;
+    right: 20vw;
+    left: 0;
+    display: flex;
+}
+.btn-container div{
+    width: 50%;
+    text-align: center;
+    height: 5vh;
+}
+
+.btn-container div:hover{
+    cursor: pointer;
+}

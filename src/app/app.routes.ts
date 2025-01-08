@@ -3,10 +3,12 @@ import { SkillsPageComponent } from './components/skills-page/skills-page.compon
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { ContactPageComponent } from './components/contact-page/contact-page.component';
 import { AboutMePageComponent } from './components/about-me-page/about-me-page.component';
+import { TutoPageComponent } from './components/tuto-page/tuto-page.component';
 
 export const routes: Routes = [
     {path:'', component: HomePageComponent},
     {path: 'skills', component: SkillsPageComponent },
     {path:'contact-me', component: ContactPageComponent},
-    {path:'about-me', component: AboutMePageComponent}
+    {path:'about-me', component: AboutMePageComponent},
+    {path:'tuto', component:TutoPageComponent}
 ];
