@@ -11,12 +11,15 @@
 }
 
 .menu{
-    background: #3586ff72;
+    background: #3586ff;
     position: absolute;
     right: 0;
     top: 0;
     bottom: 0;
     width: 20vw;
+    border-left: solid 2px;
+    border-left-color: rgba(33, 21, 201, 0.76);
+    z-index: 1000;
 }
 
 .menu ul{
@@ -33,23 +36,25 @@
 .menu ul li {
     font-family: sans-serif;
     font-weight: 600;
-    color: white;
+    color: black;
     font-size: 20px;
     display: flex;
     justify-content: left;
     align-items: center;
     padding-left: 10px;
     height: 50px;
+    transition: all 0.3s linear;
 }
 
 .menu ul li:hover{
     cursor: pointer;
-    background-color: #3586ff;
+    background-color: #1f70ea;
+    color: white;
 }
 
 .contenu-container{
     position: absolute;
-    background: black;
+    background: white;
     right: 20vw;
     left: 0;
     top: 0;

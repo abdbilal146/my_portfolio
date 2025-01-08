@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home-page',
@@ -10,7 +11,7 @@ import { Meta, Title } from '@angular/platform-browser';
 })
 export class HomePageComponent {
 
-  constructor(private title:Title, private meta:Meta){}
+  constructor(private title:Title, private meta:Meta, private router: Router){}
 
 
   ngOnInit(): void {
@@ -32,5 +33,9 @@ export class HomePageComponent {
       {name:'google-site-verification',content:'mPmHyWfMqcaDuddfT_Kb9PHF8jF0eSM4wDUB2MAsGs0'}
     ])
     
+  }
+
+  showTutoPage(){
+    this.router.navigate(['tuto'])
   }
 }

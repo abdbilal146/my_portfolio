@@ -44,25 +44,6 @@ export class TutoPageComponent {
     }
   ]
 
-  /*categoris: Array<VideoCategory> = [
-    {
-      id: 1,
-      name: 'TypeScript',
-      url:'https://www.youtube.com/embed/XDz0LstP9Ko?si=pXn9WU1-DEhxu79r'
-    },
-    {
-      id: 2,
-      name: 'Playwright',
-      url:'https://www.youtube.com/embed/D9N3d3Kai58?si=iM1DPR1NRRGL_eVi'
-    },
-    {
-      id: 3,
-      name: 'TypeScript',
-      url:'https://www.youtube.com/embed/XDz0LstP9Ko?si=pXn9WU1-DEhxu79r'
-    },
-
-  ]
-  */
   firstCategory: string = ''
   currentTutoId : number = 0 ;
   currendVideoId = 0 ;

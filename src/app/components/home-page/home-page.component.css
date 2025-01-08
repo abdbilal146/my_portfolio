@@ -169,3 +169,28 @@ section .air.air4{
       background-position-x: -1000px; 
     }
 }
+
+.tuto-container{
+    position: absolute;
+    top: 70%;
+    left: 22%;
+    width: 20vw;
+    height: 5vh;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 20px;
+}
+
+.tuto-container:hover{
+    cursor: pointer;
+    background: #1f70ea;
+
+}
+
+.tuto-container .tuto-btn span{
+    font-family: sans-serif;
+    font-weight: 600;
+}
