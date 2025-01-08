@@ -20,12 +20,12 @@ export class TutoPageComponent {
       video: [
         {
           id: 1,
-          name: 'TypeScript',
+          name: 'Chapter 1',
           url:'https://www.youtube.com/embed/XDz0LstP9Ko?si=pXn9WU1-DEhxu79r'
         },
         {
           id: 2,
-          name: 'TypeScript',
+          name: 'Chapter 2',
           url:'https://www.youtube.com/embed/U7QBiqxcTYo?si=xLEeHs6C8lnBpieg'
         }
       ]
@@ -37,7 +37,7 @@ export class TutoPageComponent {
       video: [
         {
           id: 1,
-          name: 'TypeScript',
+          name: 'Chapter 1',
           url:'https://www.youtube.com/embed/D9N3d3Kai58?si=uLzk14Q9p5FyxsP1'
         }
       ]
@@ -49,6 +49,7 @@ export class TutoPageComponent {
   currendVideoId = 0 ;
 
   videoSectionEnabled: boolean = false;
+  bnt_next_previousEnabled: boolean = false;
   videoUrl: string = '';
   @Input() safeVideoUrl: SafeResourceUrl | undefined;
   
@@ -65,11 +66,13 @@ export class TutoPageComponent {
 
   // this methode to change the display depending on the categorie
   showVideoSection(category:NestedVideoArray, currentTutoId:number):void{
+      this.bnt_next_previousEnabled = true ;
       this.currentTutoId = currentTutoId-1;
       this.currendVideoId = 0;
       this.videoUrl = category.video[this.currendVideoId].url
       this.safeVideoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.videoUrl)
       this.videoSectionEnabled = true; 
+      
   }
 
   //this method to create caroussel

@@ -5,18 +5,19 @@
                 <li *ngFor="let categorie of categories" (click)="showVideoSection(categorie, categorie.id)"><span>{{categorie.name}}</span></li>
             </ul>
         </div>
-        <div class="contenu-container" *ngIf="true">
+        <div class="contenu-container" *ngIf="videoSectionEnabled">
             <iframe width="560" height="315" [src]="safeVideoUrl" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
     </div>
-    <div class="btn-container">
-        <div (click)="previousVideo()"><i class="fa-solid fa-arrow-left previous"></i></div>
-        <div (click)="nextVideo()"><i class="fa-solid fa-arrow-right next"></i></div>
+    <div *ngIf="bnt_next_previousEnabled" class="btn-container">
+        <div class="btn btn-previous" (click)="previousVideo()"><i class="fa-solid fa-arrow-left previous"></i></div>
+        <div class="chapter-content">Chapitre : {{currendVideoId+1}}</div> 
+        <div class="btn btn-next" (click)="nextVideo()"><i class="fa-solid fa-arrow-right next"></i></div>   
     </div>
 
-    <div class="overview-contenu">
+    <div class="overview-content">
         <div>
-            hello
+            <h1>Decouvrez mes Turoriels</h1>
         </div>
     </div>
 </div>
