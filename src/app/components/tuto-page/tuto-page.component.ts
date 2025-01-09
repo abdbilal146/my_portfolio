@@ -50,6 +50,8 @@ export class TutoPageComponent {
 
   videoSectionEnabled: boolean = false;
   bnt_next_previousEnabled: boolean = false;
+  subMenuEnabled: { [key: number]: boolean } = {};
+
   videoUrl: string = '';
   @Input() safeVideoUrl: SafeResourceUrl | undefined;
   
@@ -72,7 +74,34 @@ export class TutoPageComponent {
       this.videoUrl = category.video[this.currendVideoId].url
       this.safeVideoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.videoUrl)
       this.videoSectionEnabled = true; 
+
+      // this line to close all the sub menu before opening a new one 
+      Object.keys(this.subMenuEnabled).forEach((key) => {
+        if (parseInt(key) !== currentTutoId) {
+          this.subMenuEnabled[parseInt(key)] = false;
+        }
+      });
+
+      this.subMenuEnabled[currentTutoId] = !this.subMenuEnabled[currentTutoId];
       
+  }
+
+  //this method to display video depending on sub category
+
+  /*toggleSubMenu(categoryId: number): void {
+    // Inverser l'état du sous-menu pour la catégorie sélectionnée
+    this.subMenuEnabled[categoryId] = !this.subMenuEnabled[categoryId];
+  }*/
+
+
+  //this method to display video depending on sub category
+
+  showSubCategory(item: VideoCategory, categoryId: number, event: MouseEvent): void {
+    // Empêcher l'événement de clic de se propager et d'ouvrir le sous-menu
+    event.stopPropagation();
+    this.videoUrl = item.url;
+    this.safeVideoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.videoUrl);
+
   }
 
   //this method to create caroussel

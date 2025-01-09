@@ -2,7 +2,16 @@
     <div>
         <div class="menu">
             <ul>
-                <li *ngFor="let categorie of categories" (click)="showVideoSection(categorie, categorie.id)"><span>{{categorie.name}}</span></li>
+                <li *ngFor="let categorie of categories" (click)="showVideoSection(categorie, categorie.id)">
+                    <span>{{categorie.name}}</span>
+
+
+                    <ul *ngIf="subMenuEnabled[categorie.id]" class="sub-menu">
+                        <li *ngFor="let item of categorie.video" (click)="showSubCategory(item,categorie.id, $event)">Chapitre {{item.id}} </li>
+                    </ul>
+
+                    
+                </li>
             </ul>
         </div>
         <div class="contenu-container" *ngIf="videoSectionEnabled">

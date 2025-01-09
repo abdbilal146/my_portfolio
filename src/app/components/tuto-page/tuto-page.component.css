@@ -52,6 +52,16 @@
     color: white;
 }
 
+.menu .sub-menu{
+    position: absolute;
+    top: 100%;
+    left: 5%;
+}
+
+.menu .sub-menu li{
+    color: white;
+}
+
 .contenu-container{
     position: absolute;
     background: white;
