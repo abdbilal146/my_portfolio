@@ -1,15 +1,30 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, Sanitizer } from '@angular/core';
-import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { BrowserModule, DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { VideoCategory } from '../models/video-category';
 import { NestedVideoArray } from '../models/nested-of-video-array';
+import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { animate, state, style, transition, trigger } from '@angular/animations';
+import { NoopAnimationDriver } from '@angular/animations/browser';
 
 @Component({
   selector: 'app-tuto-page',
   standalone: true,
   imports: [CommonModule],
   templateUrl: './tuto-page.component.html',
-  styleUrl: './tuto-page.component.css'
+  styleUrl: './tuto-page.component.css', 
+  animations:[
+    trigger('fade',[
+      state('open',style({transform:'translateY(0%)'})),
+      state('closed', style({transform:'translateY(0)'})),
+      transition('open<=>closed',[animate('1s ease-in')])
+    ]),
+    trigger('menuTriger',[
+      state('close',style({transform:'translateX(120%)'})),
+      state('open', style({transform:'translateX(0%)'})),
+      transition('open<=>close', [animate('0.5s ease-in')])
+    ])
+  ],
 })
 export class TutoPageComponent {
 
@@ -48,9 +63,12 @@ export class TutoPageComponent {
   currentTutoId : number = 0 ;
   currendVideoId = 0 ;
 
-  videoSectionEnabled: boolean = false;
+  menuEnabled:'open' | 'close' = 'close';
+  menuOpenBtn: boolean = true;
+  videoSectionEnabled:'closed' | 'open' = 'open' ;
   bnt_next_previousEnabled: boolean = false;
   subMenuEnabled: { [key: number]: boolean } = {};
+
 
   videoUrl: string = '';
   @Input() safeVideoUrl: SafeResourceUrl | undefined;
@@ -65,6 +83,20 @@ export class TutoPageComponent {
     
   }
 
+  closeTheMenu(){
+    this.menuEnabled = 'close' ;
+
+    setTimeout(()=>{
+      this.menuOpenBtn = true;
+    },500)
+    
+  }
+
+  openTheMenu(){
+    this.menuEnabled = 'open';
+    this.menuOpenBtn = false;
+  }
+
 
   // this methode to change the display depending on the categorie
   showVideoSection(category:NestedVideoArray, currentTutoId:number):void{
@@ -73,7 +105,7 @@ export class TutoPageComponent {
       this.currendVideoId = 0;
       this.videoUrl = category.video[this.currendVideoId].url
       this.safeVideoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.videoUrl)
-      this.videoSectionEnabled = true; 
+      this.videoSectionEnabled = 'open'; 
 
       // this line to close all the sub menu before opening a new one 
       Object.keys(this.subMenuEnabled).forEach((key) => {

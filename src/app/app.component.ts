@@ -4,14 +4,22 @@ import { HeaderComponent } from './components/header/header.component';
 import { HomePageComponent } from "./components/home-page/home-page.component";
 import { FooterComponent } from "./components/footer/footer.component";
 import { CommonModule } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FooterService } from './services/footer.service';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HeaderComponent, HomePageComponent, FooterComponent,CommonModule],
+  imports: [RouterOutlet, HeaderComponent, FooterComponent, CommonModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
   title = 'my_portfolio';
+
+  constructor(private footerService: FooterService){}
+
+  getFooterStatus(){
+    return this.footerService.getFooterEnabled()
+  }
 }

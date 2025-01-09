@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
+import { FooterService } from '../../services/footer.service';
 
 @Component({
   selector: 'app-home-page',
@@ -11,7 +12,7 @@ import { Router } from '@angular/router';
 })
 export class HomePageComponent {
 
-  constructor(private title:Title, private meta:Meta, private router: Router){}
+  constructor(private title:Title, private meta:Meta, private router: Router, private footerService: FooterService){}
 
 
   ngOnInit(): void {
@@ -36,6 +37,7 @@ export class HomePageComponent {
   }
 
   showTutoPage(){
-    this.router.navigate(['tuto'])
+    this.router.navigate(['tuto']);
+    this.footerService.setFooterEnabled(false)
   }
 }

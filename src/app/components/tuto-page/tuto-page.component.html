@@ -1,6 +1,11 @@
 <div class="home-page-container">
+    <div (click)="openTheMenu()" *ngIf="menuOpenBtn" class="menu-open-container">
+        <span class="menu-open"><i class="fa-solid fa-arrow-left"></i><span class="contenu-text">Contenu</span></span>
+    </div>
+    
     <div>
-        <div class="menu">
+        <div [@menuTriger]="menuEnabled" class="menu">
+            <i (click)="closeTheMenu()" class="fa-duotone fa-solid fa-bars close-icon"></i>
             <ul>
                 <li *ngFor="let categorie of categories" (click)="showVideoSection(categorie, categorie.id)">
                     <span>{{categorie.name}}</span>
@@ -10,11 +15,11 @@
                         <li *ngFor="let item of categorie.video" (click)="showSubCategory(item,categorie.id, $event)">Chapitre {{item.id}} </li>
                     </ul>
 
-                    
+
                 </li>
             </ul>
         </div>
-        <div class="contenu-container" *ngIf="videoSectionEnabled">
+        <div class="contenu-container" [@fade]="videoSectionEnabled">
             <iframe width="560" height="315" [src]="safeVideoUrl" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
     </div>
@@ -23,6 +28,7 @@
         <div class="chapter-content">Chapitre : {{currendVideoId+1}}</div> 
         <div class="btn btn-next" (click)="nextVideo()"><i class="fa-solid fa-arrow-right next"></i></div>   
     </div>
+
 
     <div class="overview-content">
         <div>
