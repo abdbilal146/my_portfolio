@@ -19,7 +19,7 @@
     font-size: 20px;
 }
 
-@media (max-width: 600px) and (max-height: 935px){
+@media screen and (max-width: 600px) and (max-height: 935px){
     .contact-page-container{
         height: 80vh;
     } 
@@ -31,7 +31,7 @@
     }
 }
 
-@media (max-width: 380px){
+@media screen and (max-width: 380px){
     .contact-page-container{
         height: 80vh;
     }
