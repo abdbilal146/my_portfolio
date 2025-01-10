@@ -1,1 +1,8 @@
-<p>course-description works!</p>
+<div class="course-content-description">
+    <nav class="navbar">
+        <div class="nav-bar-list" *ngFor="let item of div">{{item.value}}</div>
+    </nav>
+    <div class="course-content">
+        <app-course-content></app-course-content>
+    </div>
+</div>

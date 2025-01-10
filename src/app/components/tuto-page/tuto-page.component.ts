@@ -6,11 +6,12 @@ import { NestedVideoArray } from '../models/nested-of-video-array';
 import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { NoopAnimationDriver } from '@angular/animations/browser';
+import { CourseDescriptionComponent } from "./course-description/course-description.component";
 
 @Component({
   selector: 'app-tuto-page',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, CourseDescriptionComponent],
   templateUrl: './tuto-page.component.html',
   styleUrl: './tuto-page.component.css', 
   animations:[

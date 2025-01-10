@@ -23,12 +23,14 @@
             <iframe width="560" height="315" [src]="safeVideoUrl" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
     </div>
+
     <div *ngIf="bnt_next_previousEnabled" class="btn-container">
         <div class="btn btn-previous" (click)="previousVideo()"><i class="fa-solid fa-arrow-left previous"></i></div>
         <div class="chapter-content">Chapitre : {{currendVideoId+1}}</div> 
         <div class="btn btn-next" (click)="nextVideo()"><i class="fa-solid fa-arrow-right next"></i></div>   
     </div>
 
+    <app-course-description></app-course-description>
 
     <div class="overview-content">
         <div>
