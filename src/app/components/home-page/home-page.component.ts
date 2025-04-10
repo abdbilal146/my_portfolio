@@ -1,14 +1,71 @@
-import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component, NgModule } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
+import { Project } from '../models/project';
+import { Social } from '../models/social';
 
 @Component({
   selector: 'app-home-page',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.css'
 })
 export class HomePageComponent {
+
+  public email:string = 'm.manacerabdelfetah@gmail.com'
+  public skills : Array<string> = [
+    'Java',
+    'JavaScript',
+    'TypeScript',
+    'C#',
+    'Python',
+    'SQL',
+    'Sélénium',
+    'Playwright',
+    'Angular',
+    'SpringBoot'
+  ];
+  public socialLink : Array<Social> = [
+    {
+      name:'linkedin',
+      link:'https://www.linkedin.com/in/abd-elfetah-mancer-b73491271/'
+    },
+    {
+      name:'github',
+      link:'https://github.com/abdbilal146'
+    },
+    {
+      name:'tiktok',
+      link:'https://www.tiktok.com/@bilal.mancer.tech'
+    },
+    {
+      name:'youtube',
+      link:'https://www.youtube.com/channel/UC03czcR3O7WfyNGEZdY-4YQ'
+    }
+  ]
+
+  public projects:Array<Project> = [
+    {
+      id:1,
+      name:'Nom de project',
+      description:'Brève description du projet, technologies utilisées (React, Node.js, etc.). Mettez en avant les défis et les résultats',
+      link:''
+    },
+    {
+      id:4,
+      name:'Nom de project',
+      description:'Brève description du projet, technologies utilisées (React, Node.js, etc.). Mettez en avant les défis et les résultats',
+      link:''
+    },
+    {
+      id:3,
+      name:'Nom de project',
+      description:'Brève description du projet, technologies utilisées (React, Node.js, etc.). Mettez en avant les défis et les résultats',
+      link:''
+    }
+
+  ]
 
   constructor(private title:Title, private meta:Meta){}
 
@@ -33,4 +90,6 @@ export class HomePageComponent {
     ])
     
   }
+
+
 }
