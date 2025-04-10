@@ -49,20 +49,23 @@ export class HomePageComponent {
   public projects:Array<Project> = [
     {
       id:1,
-      name:'Nom de project',
-      description:'Brève description du projet, technologies utilisées (React, Node.js, etc.). Mettez en avant les défis et les résultats',
-      link:''
+      name:'Automatisation des tests avec Playwright & typeScript',
+      description:"Projet d'automatisation des tests E2E pour mon portfolio , utilisant Playwright comme outil moderne et performant , avec TypeScript ",
+      imageLink:'assets/0_5dVwWHWX-Nz96rzY.png',
+      link:'https://github.com/abdbilal146/projet_playwright.git'
     },
     {
       id:4,
       name:'Nom de project',
       description:'Brève description du projet, technologies utilisées (React, Node.js, etc.). Mettez en avant les défis et les résultats',
+      imageLink:'assets/Angular-JS.jpg',
       link:''
     },
     {
       id:3,
       name:'Nom de project',
       description:'Brève description du projet, technologies utilisées (React, Node.js, etc.). Mettez en avant les défis et les résultats',
+      imageLink:'assets/spring-boot-master-class.png',
       link:''
     }
 
