@@ -2,14 +2,6 @@ html {
     scroll-behavior: smooth; /* Smooth scrolling for nav links (if any added later) */
 }
 
-body {
-   font-family: 'Inter', sans-serif;
-   margin: 0;
-   overflow-x: hidden;
-    /* --- Modern Dark Gradient Background --- */
-    background-color: #1a202c; /* Fallback */
-    color: #e2e8f0; /* Base text color */
-}
 
 /* --- Hero Section --- */
 .hero-section {

@@ -13,6 +13,7 @@ import { Social } from '../models/social';
 })
 export class HomePageComponent {
 
+  public imageLink = 'https://storage.cloud.google.com/mancerbilal/personnelle%20/my_photo.png';
   public email:string = 'm.manacerabdelfetah@gmail.com'
   public skills : Array<string> = [
     'Java',

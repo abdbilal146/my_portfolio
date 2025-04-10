@@ -12,6 +12,10 @@ export class HeaderComponent {
 
     constructor(private router: Router){}
 
+    goToExperiencePage():void{
+      this.router.navigate(['experience'])
+    }
+
     goToSkillsPage():void{
       this.router.navigate(['skills'])
     }
