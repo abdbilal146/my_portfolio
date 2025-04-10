@@ -24,7 +24,7 @@ html {
    width: 280px; height: 280px;
    border-radius: 28%;
    background-size: cover; background-position: center;
-   background-image: url('https://storage.cloud.google.com/mancerbilal/personnelle%20/my_photo.png');
+   background-image: url('/assets/my_photo.png');
    box-shadow: 0px 10px 30px -5px rgba(0, 0, 0, 0.4);
    border: 2px solid rgba(255, 255, 255, 0.1);
    animation: fadeInModern 1.5s ease-out forwards;
