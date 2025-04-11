@@ -1,0 +1,88 @@
+main {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+     /* --- Background cohérent --- */
+    background-color: #1a202c; /* Fallback */
+     /* Utilisation d'un gris légèrement différent pour varier */
+    background-image: linear-gradient(135deg, #2d3748 0%, #1f2937 100%);
+    min-height: 150vh; /* Assure que le fond couvre au moins toute la hauteur */
+    color: #e2e8f0; /* Base text color */
+}
+
+/* Style pour les cartes de certification */
+.certification-card {
+    background-color: #2d3748; /* bg-gray-800 */
+    border: 1px solid #4a5568; /* border-gray-700 */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.certification-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.certificat-open-btn:hover{
+    cursor: pointer;
+}
+
+.modal-overlay {
+    /* Full screen overlay */
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.75); /* Semi-transparent black */
+    z-index: 1000; /* Ensure it's on top */
+    display: flex; /* Use flexbox for centering */
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+    padding: 1rem; /* Padding around the content */
+    cursor: pointer; /* Indicate it can be clicked to close */
+    transition: opacity 0.3s ease;
+}
+
+.modal-content {
+    background-color: #2d3748; /* bg-gray-800 */
+    padding: 1rem;
+    border-radius: 0.5rem; /* rounded-lg */
+    max-width: 90%; /* Max width */
+    max-height: 90%; /* Max height */
+    overflow: hidden; /* Prevent content overflow */
+    position: relative; /* For close button positioning */
+    cursor: default; /* Reset cursor for the content area */
+    display: flex; /* Use flex for image sizing */
+    flex-direction: column; /* Stack close button and image */
+}
+
+.modal-content img {
+    display: block; /* Remove extra space below image */
+    max-width: 100%;
+    max-height: calc(90vh - 6rem); /* Adjust max height considering padding/button */
+    object-fit: contain; /* Scale image while maintaining aspect ratio */
+    margin: auto; /* Center image if smaller than container */
+}
+
+.modal-close-button {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    background-color: rgba(45, 55, 72, 0.7); /* bg-gray-700/70 */
+    color: #e2e8f0; /* text-slate-200 */
+    border: none;
+    border-radius: 50%;
+    width: 2rem; /* w-8 */
+    height: 2rem; /* h-8 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    z-index: 1010; /* Above image */
+}
+.modal-close-button:hover {
+    background-color: rgba(74, 85, 104, 0.8); /* bg-gray-600/80 */
+}
+.modal-close-button svg {
+     width: 1rem; /* w-4 */
+     height: 1rem; /* h-4 */
+}

@@ -56,8 +56,8 @@ export class HomePageComponent {
     },
     {
       id:4,
-      name:'Nom de project',
-      description:'Brève description du projet, technologies utilisées (React, Node.js, etc.). Mettez en avant les défis et les résultats',
+      name:'Mon Portfolio ( Angular TypeScript & Tailwind CSS',
+      description:'projet de développment de mon portfolio , utilisant Angular TS ,Tailwind Css frameworks pour le front',
       imageLink:'assets/Angular-JS.jpg',
       link:''
     },

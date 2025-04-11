@@ -16,6 +16,10 @@ export class HeaderComponent {
       this.router.navigate(['experience'])
     }
 
+    goToCertificationsPage():void{
+      this.router.navigate(['certifications'])
+    }
+
     goToSkillsPage():void{
       this.router.navigate(['skills'])
     }

@@ -1,0 +1,26 @@
+<main class="max-w-10xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+    <h1 class="text-3xl font-bold text-center text-white mb-12 pt-8 sm:pt-12">Mes Certifications</h1>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+        <div *ngFor="let certification of certifications" class="certification-card rounded-lg p-6 shadow-md">
+            <h3 class="text-xl font-semibold text-white mb-2">{{certification.name}}</h3>
+            <p class="text-slate-400 text-sm mb-1">Organisme de Délivrance : {{certification.issuingBody}}</p>
+            <p class="text-slate-500 text-xs mb-3">Date d'obtention : {{certification.date}}</p>
+            <a (click)="openModalPopin(certification.imageLink)" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300 text-sm font-medium inline-block certificat-open-btn">Voir le certificat &rarr;</a>
+        </div>
+    </div>
+</main>
+
+<div *ngIf="modalVisibility" id="certificateModal" class="modal-overlay" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+    <div class="modal-content">
+        <button (click)="closeModalPopin()" id="closeModalButton" class="modal-close-button" aria-label="Fermer">
+             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+             </svg>
+        </button>
+        <img id="modalCertificateImage" [src]="imageLink" alt="Image du Certificat" />
+    </div>
+</div>
+
+
