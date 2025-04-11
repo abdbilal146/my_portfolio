@@ -1,8 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { Component, NgModule } from '@angular/core';
-import { Meta, Title } from '@angular/platform-browser';
+import { DomSanitizer, Meta, Title } from '@angular/platform-browser';
 import { Project } from '../models/project';
 import { Social } from '../models/social';
+import { HttpClient, } from '@angular/common/http';
+import { SkillsCategory } from '../models/skills_category';
 
 @Component({
   selector: 'app-home-page',
@@ -14,19 +16,81 @@ import { Social } from '../models/social';
 export class HomePageComponent {
 
   public imageLink = 'https://storage.cloud.google.com/mancerbilal/personnelle%20/my_photo.png';
-  public email:string = 'm.manacerabdelfetah@gmail.com'
-  public skills : Array<string> = [
-    'Java',
-    'JavaScript',
-    'TypeScript',
-    'C#',
-    'Python',
-    'SQL',
-    'Sélénium',
-    'Playwright',
-    'Angular',
-    'SpringBoot'
+  public email:string = 'm.mancerabdelfetah@gmail.com';
+  public cvFilePath = 'Angular-JS.jpg';
+  public skillsCategory: SkillsCategory[]= [
+    {
+      name:'FrontEnd',
+      skills:[
+        {
+          name:'HTML5',
+          level:'Avancé',
+        },
+        {
+          name:'CSS',
+          level:'Avancé'
+        },
+        {
+          name:'JavaScript',
+          level:'Avancé'
+        },
+        {
+          name:'TypeScript',
+          level:'Avancé'
+        },
+        {
+          name:'Angular',
+          level:'Intermédiaire'
+        }
+      ]
+    },
+    {
+      name:'Backend',
+      skills:[
+        {
+          name:'SpringBoot',
+          level:'Intermédiaire'
+        },
+      ]
+    },
+    {
+      name:'Automatisation',
+      skills:[
+        {
+          name:'Playwright',
+          level:'Avancé'
+        },
+        {
+          name:'Sélénium',
+          level:'Avancé'
+        },
+        {
+          name:'Cypress',
+          level:'Avancé'
+        },
+      ]
+    },
+    {
+      name: 'Outils & Bases de Données',
+      skills: [
+        { name: 'Git / GitHub', level: 'Intermédiaire' },
+        { name: 'Docker', level: 'Débutant' },
+        { name: 'SQL (PostgreSQL, MySQL)', level: 'Intermédiaire' },
+        { name: 'AWS', level: 'Débutant' }
+      ]
+    },
+    {
+      name: 'Langages de Programmation',
+      skills: [
+        { name: 'Java', level: 'Avancé' },
+        { name: 'C#', level: 'Avancé' },
+        { name: 'JavaScript', level: 'Avancé' },
+        { name: 'TypeScript', level: 'Avancé' },
+        { name: 'Python', level: 'Intermédiaire' }
+      ]
+    }
   ];
+  
   public socialLink : Array<Social> = [
     {
       name:'linkedin',
@@ -55,7 +119,7 @@ export class HomePageComponent {
       link:'https://github.com/abdbilal146/projet_playwright.git'
     },
     {
-      id:4,
+      id:2,
       name:'Mon Portfolio ( Angular TypeScript & Tailwind CSS',
       description:'projet de développment de mon portfolio , utilisant Angular TS ,Tailwind Css frameworks pour le front',
       imageLink:'assets/Angular-JS.jpg',
@@ -63,7 +127,7 @@ export class HomePageComponent {
     },
     {
       id:3,
-      name:'Nom de project',
+      name:'Rest API (Spring Boot)',
       description:'Brève description du projet, technologies utilisées (React, Node.js, etc.). Mettez en avant les défis et les résultats',
       imageLink:'assets/spring-boot-master-class.png',
       link:''
@@ -71,7 +135,7 @@ export class HomePageComponent {
 
   ]
 
-  constructor(private title:Title, private meta:Meta){}
+  constructor(private title:Title, private meta:Meta, private http: HttpClient){}
 
 
   ngOnInit(): void {
@@ -93,6 +157,21 @@ export class HomePageComponent {
       {name:'google-site-verification',content:'mPmHyWfMqcaDuddfT_Kb9PHF8jF0eSM4wDUB2MAsGs0'}
     ])
     
+  }
+
+  downloadAssetFile(filePath: string, fileName: string): void {
+    const assetUrl = `/assets/${filePath}`;
+    
+    this.http.get(assetUrl, { responseType: 'blob' }).subscribe(blob => {
+      const url = window.URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = fileName;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      window.URL.revokeObjectURL(url);
+    });
   }
 
 

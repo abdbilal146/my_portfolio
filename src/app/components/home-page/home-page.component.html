@@ -26,7 +26,7 @@
         <p class="text-lg md:text-xl leading-relaxed text-slate-300">
             Mon objectif est de transformer des idées complexes en applications intuitives et efficaces. J'aime relever des défis techniques et collaborer au sein d'équipes dynamiques.
         </p>
-        <a href="#" class="mt-8 inline-block bg-blue-500 hover:bg-blue-600 text-white font-medium py-3 px-6 rounded-lg transition duration-300">
+        <a (click)="downloadAssetFile(cvFilePath,'cv')"  class="mt-8 inline-block bg-blue-500 hover:bg-blue-600 text-white font-medium py-3 px-6 rounded-lg transition duration-300 download-btn">
             Télécharger mon CV
          </a>
     </div>
@@ -54,14 +54,26 @@
 </section>
 
 <section id="skills" class="content-section bg-gray-800">
-    <div class="max-w-5xl mx-auto">
-        <h2 class="section-title">Compétences Techniques</h2>
-        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 text-center">
+    <div class="max-w-6xl mx-auto">
+        <h2 class="section-title">Compétences Techniques Détaillées</h2>
 
-            <div *ngFor="let skill of skills" class="skill-item bg-gray-700 p-4 rounded-lg shadow">
-                <span class="text-lg font-medium text-white">{{skill}}</span>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            <div *ngFor="let category of skillsCategory" class="space-y-4">
+                <h3 class="text-xl font-semibold text-white border-b border-gray-600 pb-2 mb-4">{{ category.name }}</h3>
+
+                <div *ngFor="let skill of category.skills" class="skill-entry">
+                    <span class="font-medium text-slate-200">{{ skill.name }}</span>
+                    <span class="text-sm text-blue-400 float-right level-badge"
+                    [ngClass]="{
+                        'bg-green-200 text-green-800': skill.level === 'Avancé',
+                        'bg-blue-200 text-blue-800': skill.level === 'Intermédiaire',
+                        'bg-gray-200 text-gray-800': skill.level === 'Débutant'
+                    }"
+                    >{{ skill.level }}</span>
+                    <p *ngIf="skill.context" class="text-xs text-slate-400 mt-1 clear-both">{{ skill.context }}</p>
+                </div>
             </div>
-            </div>
+        </div>
     </div>
 </section>
 
