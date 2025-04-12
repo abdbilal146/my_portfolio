@@ -11,7 +11,7 @@ import type { TolgeeInstance } from '@tolgee/core';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HeaderComponent, HomePageComponent, FooterComponent,CommonModule],
+  imports: [RouterOutlet, HeaderComponent,FooterComponent,CommonModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

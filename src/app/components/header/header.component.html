@@ -55,21 +55,35 @@
             </div>
 
             <div class="-mr-2 flex md:hidden">
-                <button type="button"
+                <button (click)="openMobileMenu()" type="button"
                     class="bg-gray-800 inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
                     aria-controls="mobile-menu" aria-expanded="false">
                     <span class="sr-only">Ouvrir le menu principal</span>
-                    <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                    <svg *ngIf="isVisibleMobileMenuOpenBtn" class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                         stroke="currentColor" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M4 6h16M4 12h16M4 18h16" />
                     </svg>
-                    <svg class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                    <svg *ngIf="isVisibleMobileMenuCloseBtn" class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                         stroke="currentColor" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M6 18L18 6M6 6l12 12" />
                     </svg>
                 </button>
+            </div>
+
+            <div *ngIf="isVisibleMobileMenu" class="fixed inset-x-0 bg-gray-800 shadow-lg z-50" id="mobile-menu">
+                <div class="space-y-1 py-4">
+                    <a href="/" class="text-gray-300 hover:bg-gray-700 hover:text-white block w-full px-3 py-3 text-base font-medium transition duration-150 ease-in-out">{{'home_list_item' | translate}}</a>
+                    <a href="#about" class="text-gray-300 hover:bg-gray-700 hover:text-white block w-full px-3 py-3 text-base font-medium transition duration-150 ease-in-out">{{'about_list_item' | translate}}</a>
+                    <a href="#projects" class="text-gray-300 hover:bg-gray-700 hover:text-white block w-full px-3 py-3 text-base font-medium transition duration-150 ease-in-out">{{'project_list_item' | translate}}</a>
+                    <a href="#skills" class="text-gray-300 hover:bg-gray-700 hover:text-white block w-full px-3 py-3 text-base font-medium transition duration-150 ease-in-out">{{'skills_list_item' | translate}}</a>
+                    <a href="#contact" class="text-gray-300 hover:bg-gray-700 hover:text-white block w-full px-3 py-3 text-base font-medium transition duration-150 ease-in-out">{{'contact_list_item' | translate}}</a>
+                    <a (click)="goToExperiencePage()"
+                    class="text-gray-300 hover:bg-gray-700 hover:text-white block w-full px-3 py-3 text-base font-medium transition duration-150 ease-in-out">{{ 'experience_list_item' | translate}}</a>
+                    <a (click)="goToCertificationsPage()"
+                    class="text-gray-300 hover:bg-gray-700 hover:text-white block w-full px-3 py-3 text-base font-medium transition duration-150 ease-in-out">{{ 'certification_list_item' | translate}}</a>
+                </div>
             </div>
         </div>
     </div>

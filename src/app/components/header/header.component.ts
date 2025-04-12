@@ -18,6 +18,9 @@ export class HeaderComponent {
     public languageMenuVisibility: boolean = false;
     public isSpanCheckvisibleFR:boolean = true;
     public isSpanCheckvisibleENG:boolean = false;
+    public isVisibleMobileMenu: boolean = false;
+    public isVisibleMobileMenuCloseBtn:boolean = false;
+    public isVisibleMobileMenuOpenBtn:boolean = true;
 
     constructor(private router: Router, private translateService:TranslateLangService ){
       
@@ -48,6 +51,19 @@ export class HeaderComponent {
       
      
       //console.log("current language is : " +this.translateService.getTranslateLang())
+    }
+
+    openMobileMenu():void{
+      if(this.isVisibleMobileMenuOpenBtn == true){
+        this.isVisibleMobileMenu = true;
+        this.isVisibleMobileMenuOpenBtn = false;
+        this.isVisibleMobileMenuCloseBtn = true;
+      }
+      else if(this.isVisibleMobileMenuOpenBtn == false){
+        this.isVisibleMobileMenu = false;
+        this.isVisibleMobileMenuOpenBtn = true;
+        this.isVisibleMobileMenuCloseBtn = false;
+      } 
     }
 
     openLanguageMenu():void{

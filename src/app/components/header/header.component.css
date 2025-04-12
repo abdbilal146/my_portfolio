@@ -1,3 +1,17 @@
 .menu-list-items:hover{
     cursor: pointer;
 }
+
+#mobile-menu {
+    height: auto; 
+    overflow: visible; 
+    position: fixed;
+    top: 64px;
+    left: 0;
+    right: 0;
+    z-index: 50;
+}
+
+#mobile-menu a {
+    display: block; 
+}
