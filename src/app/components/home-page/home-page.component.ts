@@ -1,15 +1,18 @@
 import { CommonModule } from '@angular/common';
-import { Component, NgModule } from '@angular/core';
+import { Component, inject, NgModule } from '@angular/core';
 import { DomSanitizer, Meta, Title } from '@angular/platform-browser';
 import { Project } from '../models/project';
 import { Social } from '../models/social';
 import { HttpClient, } from '@angular/common/http';
 import { SkillsCategory } from '../models/skills_category';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { TranslateLangService } from '../../services/translate-lang.service';
+
 
 @Component({
   selector: 'app-home-page',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule ,TranslateModule],
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.css'
 })
@@ -18,6 +21,8 @@ export class HomePageComponent {
   public imageLink = 'https://storage.cloud.google.com/mancerbilal/personnelle%20/my_photo.png';
   public email:string = 'm.mancerabdelfetah@gmail.com';
   public cvFilePath = 'Angular-JS.jpg';
+  
+
   public skillsCategory: SkillsCategory[]= [
     {
       name:'FrontEnd',
@@ -54,7 +59,7 @@ export class HomePageComponent {
       ]
     },
     {
-      name:'Automatisation',
+      name:'Automation',
       skills:[
         {
           name:'Playwright',
@@ -71,7 +76,7 @@ export class HomePageComponent {
       ]
     },
     {
-      name: 'Outils & Bases de Données',
+      name: 'tools',
       skills: [
         { name: 'Git / GitHub', level: 'Intermédiaire' },
         { name: 'Docker', level: 'Débutant' },
@@ -80,7 +85,7 @@ export class HomePageComponent {
       ]
     },
     {
-      name: 'Langages de Programmation',
+      name: 'programmation_languages',
       skills: [
         { name: 'Java', level: 'Avancé' },
         { name: 'C#', level: 'Avancé' },
@@ -113,34 +118,40 @@ export class HomePageComponent {
   public projects:Array<Project> = [
     {
       id:1,
-      name:'Automatisation des tests avec Playwright & typeScript',
-      description:"Projet d'automatisation des tests E2E pour mon portfolio , utilisant Playwright comme outil moderne et performant , avec TypeScript ",
+      name:'automation_project_name',
+      description:"automation_project_description",
       imageLink:'assets/0_5dVwWHWX-Nz96rzY.png',
       link:'https://github.com/abdbilal146/projet_playwright.git'
     },
     {
       id:2,
-      name:'Mon Portfolio ( Angular TypeScript & Tailwind CSS',
-      description:'projet de développment de mon portfolio , utilisant Angular TS ,Tailwind Css frameworks pour le front',
+      name:'portfolio_project_name',
+      description:'portfolio_project_description',
       imageLink:'assets/Angular-JS.jpg',
       link:''
     },
     {
       id:3,
-      name:'Rest API (Spring Boot)',
-      description:'Brève description du projet, technologies utilisées (React, Node.js, etc.). Mettez en avant les défis et les résultats',
+      name:'rest_project_name',
+      description:'rest_api_project',
       imageLink:'assets/spring-boot-master-class.png',
       link:''
     }
 
-  ]
+  ];
 
-  constructor(private title:Title, private meta:Meta, private http: HttpClient){}
+  
+
+
+  constructor(private title:Title, private meta:Meta, private http: HttpClient, private translateService:TranslateLangService){
+
+  }
 
 
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
+    
     this.title.setTitle('Acceuil');
     this.meta.updateTag({name:'description', content:`Bienvenue sur le portfolio de Bilal Mancer, ingénieur en informatique et passionné par le développement de logiciels. Fort d’une expertise en conception, développement et optimisation de solutions logicielles, je mets mes compétences au service de projets innovants et ambitieux. Avec une solide formation en ingénierie informatique et une expérience pratique dans divers domaines technologiques, je me spécialise dans la création d'applications sur-mesure, l’architecture logicielle, ainsi que le développement de solutions cloud.
     Développement logiciel : Expertise en programmation Java, Python, C++, JavaScript, HTML,CSS, SQL
@@ -155,7 +166,8 @@ export class HomePageComponent {
       {name:'author',content:'Bilal Mancer'},
       {property:'og:url', content:'https://mancerbilal.netlify.app/'}, 
       {name:'google-site-verification',content:'mPmHyWfMqcaDuddfT_Kb9PHF8jF0eSM4wDUB2MAsGs0'}
-    ])
+    ]);
+    
     
   }
 

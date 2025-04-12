@@ -3,7 +3,7 @@
         <div class="flex items-center justify-between h-16">
 
             <div class="flex items-center">
-                <span class="text-white font-bold text-xl">{{ 'Logo' | translate }}</span>
+                <span class="text-white font-bold text-xl" t key="Logo">{{'Logo' | translate}}</span>
             </div>
 
             <div class="relative ml-4"> 
@@ -24,10 +24,10 @@
                     <div class="py-1" role="none">
                         <a (click)="switchLanguage('fr')" class="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100" role="menuitem"
                             tabindex="-1" id="menu-item-0">
-                            Français <span class="text-blue-500 ml-1">✓</span> </a>
+                            Français <span class="text-blue-500 ml-1" *ngIf="isSpanCheckvisibleFR">✓</span> </a>
                         <a (click)="switchLanguage('en')" class="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100" role="menuitem"
                             tabindex="-1" id="menu-item-1">
-                            English
+                            English <span class="text-blue-500 ml-1" *ngIf="isSpanCheckvisibleENG">✓</span>
                         </a>
                     </div>
 

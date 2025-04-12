@@ -4,6 +4,9 @@ import { HeaderComponent } from './components/header/header.component';
 import { HomePageComponent } from "./components/home-page/home-page.component";
 import { FooterComponent } from "./components/footer/footer.component";
 import { CommonModule } from '@angular/common';
+import { TOLGEE_INSTANCE } from '@tolgee/ngx';
+import type { TolgeeInstance } from '@tolgee/core';
+
 
 @Component({
   selector: 'app-root',
@@ -14,4 +17,5 @@ import { CommonModule } from '@angular/common';
 })
 export class AppComponent {
   title = 'my_portfolio';
+ 
 }

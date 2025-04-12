@@ -1,8 +1,8 @@
 <section id="hero" class="hero-section">
     <div class="text-container lg:order-1 lg:bg-transparent lg:backdrop-blur-none lg:border-none lg:shadow-none md:bg-gray-700/30 md:backdrop-blur-md md:border md:border-white/10 md:shadow-lg md:p-8 md:rounded-xl">
-        <h1>Salut...</h1>
-        <p>Je M'appelle <span>Abd-ElFetah (Bilal) Mancer</span></p>
-        <p>Je suis Un Ingénieur En Informatique et Logiciel</p>
+        <h1>{{'presentation_titles'| translate}}</h1>
+        <p>{{'presentation_myname'| translate}} <span>{{'presentation_name' | translate}}</span></p>
+        <p>{{'presentation_desc' | translate}}</p>
     </div>
 
     <div class="image-container lg:order-2">
@@ -19,32 +19,32 @@
 
 <section id="about" class="content-section bg-gray-800">
     <div class="max-w-4xl mx-auto text-center">
-        <h2 class="section-title">À Propos de Moi</h2>
+        <h2 class="section-title">{{'about_me' | translate}}</h2>
         <p class="text-lg md:text-xl leading-relaxed text-slate-300 mb-6">
-            Passionné par la création de solutions logicielles innovantes et performantes. Fort d'une expérience en Automatisation des tests , développement logiciel et toujours avide d'apprendre les nouvelles technologies.
+            {{'des_first_part' | translate}}
         </p>
         <p class="text-lg md:text-xl leading-relaxed text-slate-300">
-            Mon objectif est de transformer des idées complexes en applications intuitives et efficaces. J'aime relever des défis techniques et collaborer au sein d'équipes dynamiques.
+            {{'des_second_part' | translate}}
         </p>
         <a (click)="downloadAssetFile(cvFilePath,'cv')"  class="mt-8 inline-block bg-blue-500 hover:bg-blue-600 text-white font-medium py-3 px-6 rounded-lg transition duration-300 download-btn">
-            Télécharger mon CV
+            {{'download_cv_btn_text' | translate}}
          </a>
     </div>
 </section>
 
 <section id="projects" class="content-section bg-gray-900">
     <div class="max-w-7xl mx-auto">
-        <h2 class="section-title">Mes Projets</h2>
+        <h2 class="section-title">{{'project_title' | translate}}</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
             <div *ngFor="let project of projects" class="project-card bg-gray-800 rounded-lg overflow-hidden shadow-lg">
                 <img [src]="project.imageLink" alt="[Image du Projet 1]" class="w-full h-48 object-cover">
                 <div class="p-6">
-                    <h3 class="text-xl font-semibold mb-2 text-white">{{project.name}}</h3>
+                    <h3 class="text-xl font-semibold mb-2 text-white">{{project.name | translate}}</h3>
                     <p class="text-slate-400 mb-4">
-                        {{project.description}}
+                        {{project.description | translate}}
                     </p>
-                    <a [href]="project.link" class="text-blue-400 hover:text-blue-300 font-medium" target="_blank">Voir le projet &rarr;</a>
+                    <a [href]="project.link" class="text-blue-400 hover:text-blue-300 font-medium" target="_blank">{{'view_project_link' | translate}} &rarr;</a>
                      
                 </div>
             </div>
@@ -55,11 +55,11 @@
 
 <section id="skills" class="content-section bg-gray-800">
     <div class="max-w-6xl mx-auto">
-        <h2 class="section-title">Compétences Techniques Détaillées</h2>
+        <h2 class="section-title">{{'technical_skills_title'| translate}}</h2>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
             <div *ngFor="let category of skillsCategory" class="space-y-4">
-                <h3 class="text-xl font-semibold text-white border-b border-gray-600 pb-2 mb-4">{{ category.name }}</h3>
+                <h3 class="text-xl font-semibold text-white border-b border-gray-600 pb-2 mb-4">{{ category.name | translate }}</h3>
 
                 <div *ngFor="let skill of category.skills" class="skill-entry">
                     <span class="font-medium text-slate-200">{{ skill.name }}</span>
@@ -79,9 +79,9 @@
 
 <section id="contact" class="content-section bg-gray-900">
     <div class="max-w-3xl mx-auto text-center ">
-        <h2 class="section-title">Contactez-moi</h2>
+        <h2 class="section-title">{{'contact_me'| translate}}</h2>
         <p class="text-lg md:text-xl leading-relaxed text-slate-300 mb-8">
-            Intéressé par une collaboration ou une opportunité ? N'hésitez pas à me contacter !
+            {{'contact_me_desc'| translate}}
         </p>
         <div class="flex justify-center items-center space-x-6 mb-6">
             <a href="mailto:votre.email@example.com" class="text-blue-400 hover:text-blue-300 text-xl font-medium">
