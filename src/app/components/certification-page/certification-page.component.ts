@@ -33,6 +33,20 @@ export class CertificationPageComponent {
       issuingBody:'Linkedin',
       date: '15 Janvier 2024',
       imageLink:'assets/2025-04-11_21h37_42.png'
+    },
+    {
+      id:4,
+      name:'version_control_course_name',
+      issuingBody:'Coursera / Meta',
+      date: '13 Avril 2025',
+      imageLink:'assets/version_control_meta.png'
+    },
+    {
+      id:5,
+      name:'foundation_of_cybersecurity_course_name',
+      issuingBody:'Coursera / Google',
+      date: '27 Juin 2024',
+      imageLink:'assets/foundations_of_cybersecurity.png'
     }
   ];
   public modalVisibility:boolean = false;
