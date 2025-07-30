@@ -51,7 +51,10 @@
     "version_control_course_name":"Contrôle de version",
     "foundation_of_cybersecurity_course_name":"Fondamentaux de la cybersécurité",
     "issuing_body":"Organisme de Délivrance :",
-    "obtaining_date" : "Date d'obtention :"
+    "obtaining_date" : "Date d'obtention :",
+    "project_card_title": "Mes projects",
+    "project_card_subtitle": "Découvrez mes projets créatifs et techniques Chaque projet raconte une histoire unique",
+    "project_text": "Voir mes projets détaillé"
     
-
+ 
 }

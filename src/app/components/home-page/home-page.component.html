@@ -1,34 +1,51 @@
 <section id="hero" class="hero-section">
-    <div class="text-container lg:order-1 lg:bg-transparent lg:backdrop-blur-none lg:border-none lg:shadow-none md:bg-gray-700/30 md:backdrop-blur-md md:border md:border-white/10 md:shadow-lg md:p-8 md:rounded-xl">
+
+    <div class="project-details-container">
+        <h1 class="project-card-title">{{'project_card_title' | translate}}</h1>
+        <p class="project-card-subtitle">{{'project_card_subtitle' | translate}}</p>
+
+        <a class="project-button" (click)="goToProjectPage()">
+            <span>{{'project_text' | translate}}</span>
+            <div *ngIf="loader" class="square-loader"></div>
+            <span class="arrow-icon">→</span>
+        </a>
+
+    </div>
+
+    <!-- <div class="text-container lg:order-1 lg:bg-transparent lg:backdrop-blur-none lg:border-none lg:shadow-none md:bg-gray-700/30 md:backdrop-blur-md md:border md:border-white/10 md:shadow-lg md:p-8 md:rounded-xl">
         <h1>{{'presentation_titles'| translate}}</h1>
         <p>{{'presentation_myname'| translate}} <span>{{'presentation_name' | translate}}</span></p>
         <p>{{'presentation_desc' | translate}}</p>
-    </div>
+    </div> -->
 
-    <div class="image-container lg:order-2">
-         <img [src]="imageLink"
-              alt="Photo de Abd-ElFetah (Bilal) Mancer"
-              onerror="this.onerror=null; this.src='https://placehold.co/500x500/cccccc/aaaaaa?text=Not+Found';"
-              class="opacity-0 w-full h-full object-cover" style="border-radius: inherit;"/>
-    </div>
+
+
 
     <div class="waves-container">
-        <div class="wave"></div> <div class="wave"></div> <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
     </div>
 </section>
 
 <section id="about" class="content-section bg-gray-800">
+
     <div class="max-w-4xl mx-auto text-center">
+
+
         <h2 class="section-title">{{'about_me' | translate}}</h2>
         <p class="text-lg md:text-xl leading-relaxed text-slate-300 mb-6">
             {{'des_first_part' | translate}}
         </p>
+
         <p class="text-lg md:text-xl leading-relaxed text-slate-300">
             {{'des_second_part' | translate}}
         </p>
-        <a (click)="downloadAssetFile(cvFilePath,'cv')"  class="mt-8 inline-block bg-blue-500 hover:bg-blue-600 text-white font-medium py-3 px-6 rounded-lg transition duration-300 download-btn">
+        <a (click)="downloadAssetFile(cvFilePath,'cv')"
+            class="mt-8 inline-block bg-blue-500 hover:bg-blue-600 text-white font-medium py-3 px-6 rounded-lg transition duration-300 download-btn">
             {{'download_cv_btn_text' | translate}}
-         </a>
+        </a>
+
     </div>
 </section>
 
@@ -44,8 +61,9 @@
                     <p class="text-slate-400 mb-4">
                         {{project.description | translate}}
                     </p>
-                    <a [href]="project.link" class="text-blue-400 hover:text-blue-300 font-medium" target="_blank">{{'view_project_link' | translate}} &rarr;</a>
-                     
+                    <a [href]="project.link" class="text-blue-400 hover:text-blue-300 font-medium"
+                        target="_blank">{{'view_project_link' | translate}} &rarr;</a>
+
                 </div>
             </div>
 
@@ -59,17 +77,16 @@
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
             <div *ngFor="let category of skillsCategory" class="space-y-4">
-                <h3 class="text-xl font-semibold text-white border-b border-gray-600 pb-2 mb-4">{{ category.name | translate }}</h3>
+                <h3 class="text-xl font-semibold text-white border-b border-gray-600 pb-2 mb-4">{{ category.name |
+                    translate }}</h3>
 
                 <div *ngFor="let skill of category.skills" class="skill-entry">
                     <span class="font-medium text-slate-200">{{ skill.name }}</span>
-                    <span class="text-sm text-blue-400 float-right level-badge"
-                    [ngClass]="{
+                    <span class="text-sm text-blue-400 float-right level-badge" [ngClass]="{
                         'bg-green-200 text-green-800': skill.level === 'Avancé',
                         'bg-blue-200 text-blue-800': skill.level === 'Intermédiaire',
                         'bg-gray-200 text-gray-800': skill.level === 'Débutant'
-                    }"
-                    >{{ skill.level }}</span>
+                    }">{{ skill.level }}</span>
                     <p *ngIf="skill.context" class="text-xs text-slate-400 mt-1 clear-both">{{ skill.context }}</p>
                 </div>
             </div>
@@ -77,26 +94,33 @@
     </div>
 </section>
 
-<section id="contact" class="content-section bg-gray-900"> <div class="max-w-3xl mx-auto text-center">
-    <h2 class="section-title">{{'contact_me'| translate}}</h2>
-    <p class="text-lg md:text-xl leading-relaxed text-slate-300 mb-8">
-        {{'contact_me_desc1' | translate}}
-        <br class="hidden sm:block"> {{'contact_me_desc2' | translate}}
-    </p>
-    <a href="mailto:m.mancerabdelfetah@gmail.com" class="inline-block bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-8 rounded-lg transition duration-300 text-lg shadow-md hover:shadow-lg mb-10">
-       <i class="far fa-envelope mr-2"></i> {{'contact_me_btn_text' | translate }}
-    </a>
-    <div class="flex justify-center space-x-6">
-        <a [href]="socialLink.at(0)?.link" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white transition duration-300">
-            <i class="fab fa-linkedin fa-2x"></i> </a>
-        <a [href]="socialLink.at(1)?.link" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white transition duration-300">
-            <i class="fab fa-github fa-2x"></i> </a>
-        <a href="#" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white transition duration-300">
-            <i class="fab fa-x fa-2x"></i> </a>
-        <a [href]="socialLink.at(2)?.link" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white transition duration-300">
-            <i class="fab fa-tiktok fa-2x"></i> </a>
-        <a [href]="socialLink.at(3)?.link" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white transition duration-300">
-            <i class="fab fa-youtube fa-2x"></i> </a>
+<section id="contact" class="content-section bg-gray-900">
+    <div class="max-w-3xl mx-auto text-center">
+        <h2 class="section-title">{{'contact_me'| translate}}</h2>
+        <p class="text-lg md:text-xl leading-relaxed text-slate-300 mb-8">
+            {{'contact_me_desc1' | translate}}
+            <br class="hidden sm:block"> {{'contact_me_desc2' | translate}}
+        </p>
+        <a href="mailto:m.mancerabdelfetah@gmail.com"
+            class="inline-block bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-8 rounded-lg transition duration-300 text-lg shadow-md hover:shadow-lg mb-10">
+            <i class="far fa-envelope mr-2"></i> {{'contact_me_btn_text' | translate }}
+        </a>
+        <div class="flex justify-center space-x-6">
+            <a [href]="socialLink.at(0)?.link" target="_blank" rel="noopener noreferrer"
+                class="text-slate-400 hover:text-white transition duration-300">
+                <i class="fab fa-linkedin fa-2x"></i> </a>
+            <a [href]="socialLink.at(1)?.link" target="_blank" rel="noopener noreferrer"
+                class="text-slate-400 hover:text-white transition duration-300">
+                <i class="fab fa-github fa-2x"></i> </a>
+            <a href="#" target="_blank" rel="noopener noreferrer"
+                class="text-slate-400 hover:text-white transition duration-300">
+                <i class="fab fa-x fa-2x"></i> </a>
+            <a [href]="socialLink.at(2)?.link" target="_blank" rel="noopener noreferrer"
+                class="text-slate-400 hover:text-white transition duration-300">
+                <i class="fab fa-tiktok fa-2x"></i> </a>
+            <a [href]="socialLink.at(3)?.link" target="_blank" rel="noopener noreferrer"
+                class="text-slate-400 hover:text-white transition duration-300">
+                <i class="fab fa-youtube fa-2x"></i> </a>
+        </div>
     </div>
-</div>
 </section>

@@ -1,5 +1,5 @@
 import { ApplicationConfig, importProvidersFrom, provideZoneChangeDetection } from '@angular/core';
-import { provideRouter, RouterModule } from '@angular/router';
+import { provideRouter, RouterModule, withInMemoryScrolling } from '@angular/router';
 import { routes } from './app.routes';
 import { provideClientHydration } from '@angular/platform-browser';
 import { HttpClient, provideHttpClient, withFetch } from '@angular/common/http';
@@ -13,6 +13,7 @@ import {
 } from '@tolgee/ngx';
 
 import { environment } from '../environments/environment.prod';
+import { CertificationPageComponent } from './components/certification-page/certification-page.component';
 
 
 
@@ -27,6 +28,8 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes),
     provideClientHydration(),
     provideHttpClient(withFetch()),
+    //this provider to force the application to scroll up everytime we change router
+    provideRouter([{path:'certifications', component:CertificationPageComponent}], withInMemoryScrolling({scrollPositionRestoration:'disabled'})),
     
     (TranslateModule.forRoot({
       defaultLanguage: 'fr', 
