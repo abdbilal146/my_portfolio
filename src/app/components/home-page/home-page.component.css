@@ -356,3 +356,17 @@ project-button::before {
       transform: rotate(360deg) scale(1);
    }
 }
+
+
+/* for the images */
+
+.gallery-section{
+   display: flex;
+   justify-content: center;
+   
+}
+
+.gallery-section img{
+   width: 400px;
+
+}

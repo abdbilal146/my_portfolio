@@ -92,7 +92,16 @@ export class HomePageComponent {
         { name: 'C#', level: 'Avancé' },
         { name: 'JavaScript', level: 'Avancé' },
         { name: 'TypeScript', level: 'Avancé' },
+        { name: 'Dart', level: 'Avancé' },
         { name: 'Python', level: 'Intermédiaire' }
+      ]
+    },
+    {
+      name: 'mobile_framework',
+      skills: [
+        { name: 'Flutter', level: 'Avancé' },
+        { name: 'Ionic-Angular', level: 'Avancé' },
+       
       ]
     }
   ];
