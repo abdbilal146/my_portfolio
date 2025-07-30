@@ -3,6 +3,13 @@
     height: 100vh;
 
 }
+
+@media (max-width: 500px) {
+   .project-page-container {
+      height: 140vh;
+   }
+}
+
 .projects-card-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -10,7 +17,7 @@
     margin-bottom: 40px;
     padding-top: 20px;
     margin-left: 20px;
-    margin-right: 20px;
+    margin-right: 20px; 
 }
 
 .card-container {
@@ -21,7 +28,7 @@
     border: 1px solid rgba(255, 255, 255, 0.2);
     transition: all 0.4s ease;
     position: relative;
-    cursor: pointer;
+    cursor: pointer; 
 }
 
 .card-container:hover {
