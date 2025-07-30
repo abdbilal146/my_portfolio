@@ -1,0 +1,24 @@
+<section class="project-page-container">
+    <div class="projects-card-container">
+        <div *ngFor="let card of projects" class="card-container">
+            <div class="card-image">
+                <div class="image-containers">
+                    <img [src]="card.imageUrl" alt="">
+                </div>
+            </div>
+            <div class="card-content">
+                <span *ngFor="let category of card.categories" class="card-category">{{category}}</span>
+                <h3 class="card-title">{{card.title}}</h3>
+                <p class="card-description">{{card.description}}</p>
+            </div>
+
+            <div class="card-technologies">
+                <span *ngFor="let tech of card.technologies" class="tech-tag">{{tech}}</span>
+            </div>
+
+            <div class="card-actions">
+                <a class="card-btn btn-secondary" [href]="card.githubRepo" target="_blank">Code Source</a>
+            </div>
+        </div>
+    </div>
+</section>

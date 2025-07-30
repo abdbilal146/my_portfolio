@@ -51,7 +51,11 @@
     "version_control_course_name":"Version Control",
     "foundation_of_cybersecurity_course_name":"Foundations of Cybersecurity",
     "issuing_body":"Issuing Body :",
-    "obtaining_date" : "Date of Acquisition :"
+    "obtaining_date" : "Date of Acquisition :",
+    "project_card_title": "My projects",
+    "project_card_subtitle": "Discover my creative and technical projects. Each project tells a unique story",
+    "project_text": "See my detailed projects"
+    
     
     
 

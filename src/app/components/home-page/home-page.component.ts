@@ -7,6 +7,7 @@ import { HttpClient, } from '@angular/common/http';
 import { SkillsCategory } from '../models/skills_category';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { TranslateLangService } from '../../services/translate-lang.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -140,10 +141,12 @@ export class HomePageComponent {
 
   ];
 
+  public loader : boolean = false;
+
   
 
 
-  constructor(private title:Title, private meta:Meta, private http: HttpClient, private translateService:TranslateLangService){
+  constructor(private title:Title, private meta:Meta, private http: HttpClient, private translateService:TranslateLangService, private router:Router){
 
   }
 
@@ -186,5 +189,13 @@ export class HomePageComponent {
     });
   }
 
+  goToProjectPage(){
+    this.loader = true;
+    setTimeout(()=>{
+      this.router.navigate(['projects']);
+    }, 2000)
+    
+  }
+    
 
 }

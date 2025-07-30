@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Certification } from '../models/certification';
 import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
+import { NavigationEnd, Router } from '@angular/router';
+import { filter } from 'rxjs';
 
 @Component({
   selector: 'app-certification-page',
@@ -51,6 +53,8 @@ export class CertificationPageComponent {
   ];
   public modalVisibility:boolean = false;
   public imageLink: string = '';
+
+  
 
   closeModalPopin():void{
     this.modalVisibility = false;
