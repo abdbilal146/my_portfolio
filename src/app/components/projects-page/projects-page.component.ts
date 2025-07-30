@@ -30,6 +30,15 @@ export class ProjectsPageComponent {
       categories : ['Mobile', 'Android', 'IOS'],
       githubRepo: "https://github.com/abdbilal146/vscard"
 
+    },
+    {
+      title : "Earthquake App",
+      imageUrl: "assets/0_5dVwWHWX-Nz96rzY.png",
+      description : "",
+      technologies: ['Dart', 'Flutter', 'USGS API'],
+      categories : ['Mobile', 'Android', 'IOS'],
+      githubRepo: "https://github.com/abdbilal146/earthquake-app"
+
     }
   ]
 
