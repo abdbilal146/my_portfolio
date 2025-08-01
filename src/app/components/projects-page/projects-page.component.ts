@@ -15,7 +15,7 @@ export class ProjectsPageComponent {
   public projects : Array<ProjteCard> = [
     {
       title : "Word Hurdle",
-      imageUrl: "assets/0_5dVwWHWX-Nz96rzY.png",
+      imageUrl: "assets/wordle_game_screen.png",
       description : "",
       technologies: ['Dart', 'Flutter'],
       categories : ['Mobile', 'Android', 'IOS'],
@@ -24,7 +24,7 @@ export class ProjectsPageComponent {
     },
     {
       title : "Visit Card App",
-      imageUrl: "assets/0_5dVwWHWX-Nz96rzY.png",
+      imageUrl: "assets/visit_card_screen.png",
       description : "",
       technologies: ['Dart', 'Flutter'],
       categories : ['Mobile', 'Android', 'IOS'],
@@ -33,10 +33,19 @@ export class ProjectsPageComponent {
     },
     {
       title : "Earthquake App",
-      imageUrl: "assets/0_5dVwWHWX-Nz96rzY.png",
+      imageUrl: "assets/earthquake_app_screen.png",
       description : "",
       technologies: ['Dart', 'Flutter', 'USGS API'],
       categories : ['Mobile', 'Android', 'IOS'],
+      githubRepo: "https://github.com/abdbilal146/earthquake-app"
+
+    },
+    {
+      title : "Playwright Costum Report",
+      imageUrl: "assets/earthquake_app_screen.png",
+      description : "",
+      technologies: ['TypeScript', 'Playwright'],
+      categories : ['Test', 'Automation'],
       githubRepo: "https://github.com/abdbilal146/earthquake-app"
 
     }
