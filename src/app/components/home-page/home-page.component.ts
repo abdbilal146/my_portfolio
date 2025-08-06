@@ -8,6 +8,7 @@ import { SkillsCategory } from '../models/skills_category';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { TranslateLangService } from '../../services/translate-lang.service';
 import { Router } from '@angular/router';
+import { CanonicalService } from '../../services/canonical.service';
 
 
 @Component({
@@ -151,11 +152,12 @@ export class HomePageComponent {
   ];
 
   public loader : boolean = false;
+  private url: string = 'https://bilalmancer.com';
 
   
 
 
-  constructor(private title:Title, private meta:Meta, private http: HttpClient, private translateService:TranslateLangService, private router:Router){
+  constructor(private title:Title, private meta:Meta, private http: HttpClient, private translateService:TranslateLangService, private router:Router, private canonicalService: CanonicalService ){
 
   }
 
@@ -179,6 +181,8 @@ export class HomePageComponent {
       {property:'og:url', content:'https://mancerbilal.netlify.app/'}, 
       {name:'google-site-verification',content:'mPmHyWfMqcaDuddfT_Kb9PHF8jF0eSM4wDUB2MAsGs0'}
     ]);
+
+    this.canonicalService.setCanonicaUrl(this.url)
     
     
   }
