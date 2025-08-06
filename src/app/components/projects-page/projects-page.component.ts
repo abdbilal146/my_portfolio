@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import ProjteCard from '../models/project-card';
 import { CommonModule } from '@angular/common';
+import { CanonicalService } from '../../services/canonical.service';
 
 @Component({
   selector: 'app-projects-page',
@@ -50,5 +51,13 @@ export class ProjectsPageComponent {
 
     }
   ]
+
+  private url = 'https://bilalmancer.com/projects'
+
+  constructor(private canonicalService: CanonicalService){}
+
+  ngOnInit(){
+    this.canonicalService.setCanonicaUrl(this.url)
+  }
 
 }
