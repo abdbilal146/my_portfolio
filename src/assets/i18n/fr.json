@@ -27,8 +27,8 @@
     "automation_project_description": "Projet d'automatisation des tests E2E pour mon portfolio , utilisant Playwright comme outil moderne et performant , avec TypeScript",
     "portfolio_project_name":"Mon Portfolio ( Angular TypeScript & Tailwind CSS",
     "portfolio_project_description": "projet de développment de mon portfolio , utilisant Angular TS ,Tailwind Css frameworks pour le front",
-    "rest_project_name": "Rest API (Spring Boot)",
-    "rest_api_project":"Brève description du projet, technologies utilisées (React, Node.js, etc.). Mettez en avant les défis et les résultats",
+    "react_project_name": "React Project",
+    "react_project_description":"Projet développé avec React, en utilisant d'autres technologies comme Sanity CMS et Mantine UI pour le design",
     "view_project_link":"Voir le project",
     "contact_me":"Contactez-Moi",
     "contact_me_desc1":"Je suis toujours ouvert aux nouvelles opportunités et collaborations passionnantes.",
@@ -36,10 +36,10 @@
     "contact_me_btn_text":"Contactez-moi par E-mail",
     "right_disclaimer":"2025 Abd-ElFetah (Bilal) Mancer. Tous droits réservés.",
     "profes_expri_title":"Professional Experience",
-    "cordinator_post":"Cordinateur et Automaticien",
-    "cordinator_post_company_date":"Louis Vuitton | Paris | Décembre 2023 - Présent",
+    "cordinator_post":"Développeur Logiciel et Automaticien",
+    "cordinator_post_company_date":"TAKANA AO | Paris | Décembre 2023 - Présent",
     "cordinator_task_A":"Cordination avec les équipes de test et les équipes de développement",
-    "cordinator_task_B":"Tester les Bugs et les régressions",
+    "cordinator_task_B":"Mettre en place des solutions logiciel",
     "cordinator_task_C":"Automatisation des tests (Sélénium & Java & Playwright & TypeScript )",
     "cordinator_task_D":"Mettre en place des actions sur Github (CI & CD)",
     "cordinator_task_E":"Automatisation de la Data ( mettre en place des scripts pour injecter les donnés automatiquement)",
@@ -55,7 +55,11 @@
     "project_card_title": "Mes projects",
     "project_card_subtitle": "Découvrez mes projets créatifs et techniques Chaque projet raconte une histoire unique",
     "project_text": "Voir mes projets détaillé",
-    "mobile_framework": "Les Framework Mobile"
+    "mobile_framework": "Les Framework Mobile",
+    "word_hurdle_app_description": "word hurdel est une application mobile qui permet de jouer au motus sur votre telephone",
+    "visit_app_card_description" : "visit app est une application qui permet de sauvegarder les cartes de visite",
+    "earth_quake_app_description": "earthquake app est une application qui permet de suivre les tremblements de terre",
+    "playwright_costum_report_description": "playwright custom report est un code en TypeScript qui permet de generer des rapports de tests personnalisés"
     
  
 }

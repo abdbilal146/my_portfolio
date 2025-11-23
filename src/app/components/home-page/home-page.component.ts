@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject, NgModule } from '@angular/core';
+import { Component, inject, NgModule, AfterViewInit, ElementRef, ViewChildren, QueryList } from '@angular/core';
 import { DomSanitizer, Meta, Title } from '@angular/platform-browser';
 import { Project } from '../models/project';
 import { Social } from '../models/social';
@@ -9,6 +9,9 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { TranslateLangService } from '../../services/translate-lang.service';
 import { Router } from '@angular/router';
 import { CanonicalService } from '../../services/canonical.service';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { SanityCmsService } from '../../services/sanity-cms.service';
 
 
 @Component({
@@ -18,7 +21,7 @@ import { CanonicalService } from '../../services/canonical.service';
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.css'
 })
-export class HomePageComponent {
+export class HomePageComponent implements AfterViewInit {
 
   public imageLink = 'https://storage.cloud.google.com/mancerbilal/personnelle%20/my_photo.png';
   public email:string = 'm.mancerabdelfetah@gmail.com';
@@ -127,7 +130,7 @@ export class HomePageComponent {
   ]
 
   public projects:Array<Project> = [
-    {
+   /*  {
       id:1,
       name:'automation_project_name',
       description:"automation_project_description",
@@ -147,7 +150,7 @@ export class HomePageComponent {
       description:'rest_api_project',
       imageLink:'assets/spring-boot-master-class.png',
       link:''
-    }
+    } */
 
   ];
 
@@ -157,8 +160,8 @@ export class HomePageComponent {
   
 
 
-  constructor(private title:Title, private meta:Meta, private http: HttpClient, private translateService:TranslateLangService, private router:Router, private canonicalService: CanonicalService ){
-
+  constructor(private title:Title, private meta:Meta, private http: HttpClient, private translateService:TranslateLangService, private router:Router, private canonicalService: CanonicalService, private readonly sanityCmsService: SanityCmsService ){
+    gsap.registerPlugin(ScrollTrigger);
   }
 
 
@@ -184,7 +187,183 @@ export class HomePageComponent {
 
     this.canonicalService.setCanonicaUrl(this.url)
     
+
+    this.sanityCmsService.getHomePageprojects().subscribe({
+      next: (data:any)=>{
+        const result: any[] = data.result
+        result.forEach((project:any)=>{
+          this.projects.push({
+            id:project.id,
+            name:project.name,
+            description:project.description,
+            imageLink:project.image,
+            link:project.githubLink
+          })
+        })
+      }
+    })
     
+  }
+
+  ngAfterViewInit(): void {
+    this.initScrollAnimations();
+  }
+
+  initScrollAnimations(): void {
+    // Hero Section
+    gsap.from('.project-card-title', {
+      opacity: 0,
+      y: -50,
+      duration: 1,
+      delay: 0.5,
+      ease: 'power2.out'
+    });
+
+    gsap.from('.project-card-subtitle', {
+      opacity: 0,
+      y: 30,
+      duration: 1,
+      delay: 0.8,
+      ease: 'power2.out'
+    });
+
+    gsap.from('.project-button', {
+      opacity: 1,
+      scale: 1,
+      duration: 1,
+      delay: 1.2,
+      ease: 'elastic.out(1, 0.3)'
+    });
+
+    // About Section
+    gsap.from('#about .section-title', {
+      scrollTrigger: {
+        trigger: '#about',
+        start: 'top 80%',
+      },
+      opacity: 0,
+      y: 50,
+      duration: 1,
+      ease: 'power2.out'
+    });
+
+    gsap.from('#about p', {
+      scrollTrigger: {
+        trigger: '#about',
+        start: 'top 75%',
+      },
+      opacity: 0,
+      y: 30,
+      stagger: 0.2,
+      duration: 1,
+      ease: 'power2.out'
+    });
+
+    gsap.from('.download-btn', {
+      scrollTrigger: {
+        trigger: '#about',
+        start: 'top 70%',
+      },
+      opacity: 0,
+      scale: 0.9,
+      duration: 1,
+      ease: 'back.out(1.7)'
+    });
+
+    // Projects Section
+    gsap.from('#projects .section-title', {
+      scrollTrigger: {
+        trigger: '#projects',
+        start: 'top 80%',
+      },
+      opacity: 0,
+      y: 50,
+      duration: 1,
+      ease: 'power2.out'
+    });
+
+    gsap.from('.project-card', {
+      scrollTrigger: {
+        trigger: '#projects',
+        start: 'top 75%',
+      },
+      opacity: 0,
+      y: 50,
+      stagger: 0.2,
+      duration: 1,
+      ease: 'power2.out',
+      clearProps: 'all'
+    });
+
+    // Skills Section
+    gsap.from('#skills .section-title', {
+      scrollTrigger: {
+        trigger: '#skills',
+        start: 'top 80%',
+      },
+      opacity: 0,
+      y: 50,
+      duration: 1,
+      ease: 'power2.out'
+    });
+
+    gsap.from('#skills .grid > div', { // Target skill categories
+      scrollTrigger: {
+        trigger: '#skills',
+        start: 'top 75%',
+      },
+      opacity: 0,
+      y: 30,
+      stagger: 0.15,
+      duration: 1,
+      ease: 'power2.out'
+    });
+
+    // Contact Section
+    gsap.from('#contact .section-title', {
+      scrollTrigger: {
+        trigger: '#contact',
+        start: 'top 80%',
+      },
+      opacity: 0,
+      y: 50,
+      duration: 1,
+      ease: 'power2.out'
+    });
+
+    gsap.from('#contact p', {
+      scrollTrigger: {
+        trigger: '#contact',
+        start: 'top 75%',
+      },
+      opacity: 0,
+      y: 30,
+      duration: 1,
+      ease: 'power2.out'
+    });
+
+    gsap.from('#contact a.inline-block', { // Contact button
+      scrollTrigger: {
+        trigger: '#contact',
+        start: 'top 70%',
+      },
+      opacity: 0,
+      scale: 0.9,
+      duration: 1,
+      ease: 'back.out(1.7)'
+    });
+
+    gsap.from('#contact .flex a', { // Social icons
+      scrollTrigger: {
+        trigger: '#contact',
+        start: 'top 85%',
+      },
+      opacity: 0,
+      y: 20,
+      stagger: 0.1,
+      duration: 0.8,
+      ease: 'power2.out'
+    });
   }
 
   downloadAssetFile(filePath: string, fileName: string): void {

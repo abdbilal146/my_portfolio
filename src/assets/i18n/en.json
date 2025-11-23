@@ -7,7 +7,7 @@
     "skills_list_item": "Skills",
     "contact_list_item": "Contact",
     "experience_list_item": "Experiences",
-    "certification_list_item": "Certifications",
+    "certification_list_item": "Certifications", 
     "presentation_titles":"Hello...",
     "presentation_myname":"My Name Is",
     "presentation_name":"Abd-ElFetah (Bilal) Mancer",
@@ -27,8 +27,8 @@
     "automation_project_description": "End-to-End test automation project for my portfolio, using Playwright as a modern and efficient tool, with TypeScript",
     "portfolio_project_name":"My Portfolio (Angular, TypeScript & Tailwind CSS)",
     "portfolio_project_description": "Portfolio development project, using Angular, TypeScript, and Tailwind CSS frameworks for the front end",
-    "rest_project_name": "Rest API (Spring Boot)",
-    "rest_api_project":"Brief description of the project, technologies used (React, Node.js, etc.). Highlight the challenges and results.",
+    "react_project_name": "React Project",
+    "react_project_description":"React-based project powered by Sanity CMS, using Mantine UI for styling",
     "view_project_link":"View the project",
     "contact_me":"Contact-Me",
     "contact_me_desc1":"I am always open to new opportunities and exciting collaborations",
@@ -55,9 +55,9 @@
     "project_card_title": "My projects",
     "project_card_subtitle": "Discover my creative and technical projects. Each project tells a unique story",
     "project_text": "See my detailed projects",
-    "mobile_framework": "Mobile Framework"
-    
-    
-    
-
+    "mobile_framework": "Mobile Framework",
+    "word_hurdle_app_description": "Word Hurdle is a mobile application that allows you to play Wordle on your phone",
+    "visit_app_card_description": "Visit App is an application that allows you to save business cards",
+    "earth_quake_app_description": "Earthquake App is an application that allows you to track earthquakes",
+    "playwright_costum_report_description": "Playwright Custom Report is a TypeScript code that allows generating custom test reports"
 }
