@@ -179,7 +179,8 @@ html {
 
 /* --- Section Styling --- */
 .content-section {
-   padding: 5rem 2rem;
+   padding: 10rem 2rem;
+
    /* Vertical padding for sections */
 }
 
@@ -360,13 +361,13 @@ project-button::before {
 
 /* for the images */
 
-.gallery-section{
+.gallery-section {
    display: flex;
    justify-content: center;
-   
+
 }
 
-.gallery-section img{
+.gallery-section img {
    width: 400px;
 
 }

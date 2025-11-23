@@ -12,7 +12,7 @@ import { CanonicalService } from '../../services/canonical.service';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { SanityCmsService } from '../../services/sanity-cms.service';
-
+import skills from './data';
 
 @Component({
   selector: 'app-home-page',
@@ -28,136 +28,12 @@ export class HomePageComponent implements AfterViewInit {
   public cvFilePath = 'Angular-JS.jpg';
   
 
-  public skillsCategory: SkillsCategory[]= [
-    {
-      name:'FrontEnd',
-      skills:[
-        {
-          name:'HTML5',
-          level:'Avancé',
-        },
-        {
-          name:'CSS',
-          level:'Avancé'
-        },
-        {
-          name:'JavaScript',
-          level:'Avancé'
-        },
-        {
-          name:'TypeScript',
-          level:'Avancé'
-        },
-        {
-          name:'Angular',
-          level:'Intermédiaire'
-        }
-      ]
-    },
-    {
-      name:'Backend',
-      skills:[
-        {
-          name:'SpringBoot',
-          level:'Intermédiaire'
-        },
-      ]
-    },
-    {
-      name:'Automation',
-      skills:[
-        {
-          name:'Playwright',
-          level:'Avancé'
-        },
-        {
-          name:'Sélénium',
-          level:'Avancé'
-        },
-        {
-          name:'Cypress',
-          level:'Avancé'
-        },
-      ]
-    },
-    {
-      name: 'tools',
-      skills: [
-        { name: 'Git / GitHub', level: 'Intermédiaire' },
-        { name: 'Docker', level: 'Débutant' },
-        { name: 'SQL (PostgreSQL, MySQL)', level: 'Intermédiaire' },
-        { name: 'AWS', level: 'Débutant' }
-      ]
-    },
-    {
-      name: 'programmation_languages',
-      skills: [
-        { name: 'Java', level: 'Avancé' },
-        { name: 'C#', level: 'Avancé' },
-        { name: 'JavaScript', level: 'Avancé' },
-        { name: 'TypeScript', level: 'Avancé' },
-        { name: 'Dart', level: 'Avancé' },
-        { name: 'Python', level: 'Intermédiaire' }
-      ]
-    },
-    {
-      name: 'mobile_framework',
-      skills: [
-        { name: 'Flutter', level: 'Avancé' },
-        { name: 'Ionic-Angular', level: 'Avancé' },
-       
-      ]
-    }
-  ];
+  public skillsCategory: SkillsCategory[]= skills
   
-  public socialLink : Array<Social> = [
-    {
-      name:'linkedin',
-      link:'https://www.linkedin.com/in/abd-elfetah-mancer-b73491271/'
-    },
-    {
-      name:'github',
-      link:'https://github.com/abdbilal146'
-    },
-    {
-      name:'tiktok',
-      link:'https://www.tiktok.com/@bilal.mancer.tech'
-    },
-    {
-      name:'youtube',
-      link:'https://www.youtube.com/channel/UC03czcR3O7WfyNGEZdY-4YQ'
-    }
-  ]
-
-  public projects:Array<Project> = [
-   /*  {
-      id:1,
-      name:'automation_project_name',
-      description:"automation_project_description",
-      imageLink:'assets/0_5dVwWHWX-Nz96rzY.png',
-      link:'https://github.com/abdbilal146/projet_playwright.git'
-    },
-    {
-      id:2,
-      name:'portfolio_project_name',
-      description:'portfolio_project_description',
-      imageLink:'assets/Angular-JS.jpg',
-      link:''
-    },
-    {
-      id:3,
-      name:'rest_project_name',
-      description:'rest_api_project',
-      imageLink:'assets/spring-boot-master-class.png',
-      link:''
-    } */
-
-  ];
-
+  public socialLink : Array<Social> = [];
+  public projects:Array<Project> = [];
   public loader : boolean = false;
   private url: string = 'https://bilalmancer.com';
-
-  
 
 
   constructor(private title:Title, private meta:Meta, private http: HttpClient, private translateService:TranslateLangService, private router:Router, private canonicalService: CanonicalService, private readonly sanityCmsService: SanityCmsService ){
@@ -198,6 +74,18 @@ export class HomePageComponent implements AfterViewInit {
             description:project.description,
             imageLink:project.image,
             link:project.githubLink
+          })
+        })
+      }
+    })
+
+    this.sanityCmsService.getSocials().subscribe({
+      next: (data:any)=>{
+        const result: any[] = data.result
+        result.forEach((social:any)=>{
+          this.socialLink.push({
+            name:social.name,
+            link:social.url
           })
         })
       }
