@@ -1,63 +1,46 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import ProjteCard from '../models/project-card';
 import { CommonModule } from '@angular/common';
 import { CanonicalService } from '../../services/canonical.service';
+import { SanityCmsService } from '../../services/sanity-cms.service';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-projects-page',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, TranslateModule],
   templateUrl: './projects-page.component.html',
   styleUrl: './projects-page.component.css'
 })
-export class ProjectsPageComponent {
+export class ProjectsPageComponent implements OnInit{
 
 
-  public projects : Array<ProjteCard> = [
-    {
-      title : "Word Hurdle",
-      imageUrl: "assets/wordle_game_screen.png",
-      description : "",
-      technologies: ['Dart', 'Flutter'],
-      categories : ['Mobile', 'Android', 'IOS'],
-      githubRepo: "https://github.com/abdbilal146/wordhurdle"
-
-    },
-    {
-      title : "Visit Card App",
-      imageUrl: "assets/visit_card_screen.png",
-      description : "",
-      technologies: ['Dart', 'Flutter'],
-      categories : ['Mobile', 'Android', 'IOS'],
-      githubRepo: "https://github.com/abdbilal146/vscard"
-
-    },
-    {
-      title : "Earthquake App",
-      imageUrl: "assets/earthquake_app_screen.png",
-      description : "",
-      technologies: ['Dart', 'Flutter', 'USGS API'],
-      categories : ['Mobile', 'Android', 'IOS'],
-      githubRepo: "https://github.com/abdbilal146/earthquake-app"
-
-    },
-    {
-      title : "Playwright Costum Report",
-      imageUrl: "assets/earthquake_app_screen.png",
-      description : "",
-      technologies: ['TypeScript', 'Playwright'],
-      categories : ['Test', 'Automation'],
-      githubRepo: "https://github.com/abdbilal146/earthquake-app"
-
-    }
-  ]
+  public projects : Array<ProjteCard> = []
 
   private url = 'https://bilalmancer.com/projects'
 
-  constructor(private canonicalService: CanonicalService){}
+  constructor(private canonicalService: CanonicalService, private readonly sanityCmsService: SanityCmsService){}
 
   ngOnInit(){
     this.canonicalService.setCanonicaUrl(this.url)
+    this.sanityCmsService.getProjects().subscribe({
+      next:(data:any)=>{
+        const result = data.result
+        result.forEach((project:any)=>{
+          this.projects.push({
+            title:project.title,
+            imageUrl:project.image,
+            description:project.description,
+            technologies:project.technologies,
+            categories:project.categories,
+            githubRepo:project.githubLink
+          })
+        })
+      },
+      error:(error:any)=>{
+        console.log(error)
+      }
+    })
   }
 
 }

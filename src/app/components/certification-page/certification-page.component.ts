@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Certification } from '../models/certification';
 import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
-import { NavigationEnd, Router } from '@angular/router';
-import { filter } from 'rxjs';
+import { SanityCmsService } from '../../services/sanity-cms.service';
 
 @Component({
   selector: 'app-certification-page',
@@ -12,49 +11,35 @@ import { filter } from 'rxjs';
   templateUrl: './certification-page.component.html',
   styleUrl: './certification-page.component.css'
 })
-export class CertificationPageComponent {
+export class CertificationPageComponent implements OnInit {
 
- public certifications:Array<Certification> = [
-    {
-      id:1,
-      name:'java1_course_name',
-      issuingBody:'Coursera / Duke University',
-      date:'15 Avril 2023',
-      imageLink:'assets/2025-04-11_11h01_17.png'
-    },
-    {
-      id:2,
-      name:'java_script_course_name',
-      issuingBody:'Coursera / Meta',
-      date:'04 Octobre 2024',
-      imageLink:'assets/2025-04-11_10h52_53.png'
-    },
-    {
-      id:3,
-      name:'flutter_course_name',
-      issuingBody:'Linkedin',
-      date: '15 Janvier 2024',
-      imageLink:'assets/2025-04-11_21h37_42.png'
-    },
-    {
-      id:4,
-      name:'version_control_course_name',
-      issuingBody:'Coursera / Meta',
-      date: '13 Avril 2025',
-      imageLink:'assets/version_control_meta.png'
-    },
-    {
-      id:5,
-      name:'foundation_of_cybersecurity_course_name',
-      issuingBody:'Coursera / Google',
-      date: '27 Juin 2024',
-      imageLink:'assets/foundations_of_cybersecurity.png'
-    }
-  ];
+  public certifications:Array<Certification> = [];
   public modalVisibility:boolean = false;
   public imageLink: string = '';
 
+  constructor(private readonly sanityCmsService:SanityCmsService){}
+
   
+  ngOnInit(): void {
+    this.sanityCmsService.getCertifications().subscribe({
+      next:(data:any)=>{
+        const result: any[] = data.result;
+
+        result.forEach((certification:any)=>{
+          this.certifications.push({
+            id:certification.id,
+            name:certification.title,
+            issuingBody:certification.issuingBody,
+            date:certification.date,
+            imageLink:certification.image
+          })
+        })
+      },
+      error:(error)=>{
+        console.log(error);
+      }
+    })
+  }
 
   closeModalPopin():void{
     this.modalVisibility = false;

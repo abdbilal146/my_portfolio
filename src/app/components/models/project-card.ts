@@ -1,12 +1,12 @@
 
 
 interface ProjteCard{
-    title: String;
-    imageUrl: String;
-    description: String;
-    technologies: Array<String>
-    categories: Array<String>
-    githubRepo:String
+    title: string;
+    imageUrl: string;
+    description: string;
+    technologies: Array<{name:String}>
+    categories: Array<{name:String}>
+    githubRepo:string
 }
 
 export default ProjteCard

@@ -7,13 +7,13 @@
                 </div>
             </div>
             <div class="card-content">
-                <span *ngFor="let category of card.categories" class="card-category">{{category}}</span>
+                <span *ngFor="let category of card.categories" class="card-category">{{category.name}}</span>
                 <h3 class="card-title">{{card.title}}</h3>
-                <p class="card-description">{{card.description}}</p>
+                <p class="card-description">{{card.description | translate}}</p>
             </div>
 
             <div class="card-technologies">
-                <span *ngFor="let tech of card.technologies" class="tech-tag">{{tech}}</span>
+                <span *ngFor="let tech of card.technologies" class="tech-tag">{{tech.name}}</span>
             </div>
 
             <div class="card-actions">
