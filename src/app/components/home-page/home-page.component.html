@@ -12,13 +12,6 @@
 
     </div>
 
-    <!-- <div class="text-container lg:order-1 lg:bg-transparent lg:backdrop-blur-none lg:border-none lg:shadow-none md:bg-gray-700/30 md:backdrop-blur-md md:border md:border-white/10 md:shadow-lg md:p-8 md:rounded-xl">
-        <h1>{{'presentation_titles'| translate}}</h1>
-        <p>{{'presentation_myname'| translate}} <span>{{'presentation_name' | translate}}</span></p>
-        <p>{{'presentation_desc' | translate}}</p>
-    </div> -->
-
-
 
 
     <div class="waves-container">
@@ -110,21 +103,11 @@
             <i class="far fa-envelope mr-2"></i> {{'contact_me_btn_text' | translate }}
         </a>
         <div class="flex justify-center space-x-6">
-            <a [href]="socialLink.at(0)?.link" target="_blank" rel="noopener noreferrer"
-                class="text-slate-400 hover:text-white transition duration-300">
-                <i class="fab fa-linkedin fa-2x"></i> </a>
-            <a [href]="socialLink.at(1)?.link" target="_blank" rel="noopener noreferrer"
-                class="text-slate-400 hover:text-white transition duration-300">
-                <i class="fab fa-github fa-2x"></i> </a>
-            <a href="#" target="_blank" rel="noopener noreferrer"
-                class="text-slate-400 hover:text-white transition duration-300">
-                <i class="fab fa-x fa-2x"></i> </a>
-            <a [href]="socialLink.at(2)?.link" target="_blank" rel="noopener noreferrer"
-                class="text-slate-400 hover:text-white transition duration-300">
-                <i class="fab fa-tiktok fa-2x"></i> </a>
-            <a [href]="socialLink.at(3)?.link" target="_blank" rel="noopener noreferrer"
-                class="text-slate-400 hover:text-white transition duration-300">
-                <i class="fab fa-youtube fa-2x"></i> </a>
+            @for (item of socialLink; track $index) {
+            <a [href]="item.link" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white ">
+                <i class="fab fa-{{item.name}} fa-2x"></i> </a>
+            }
+
         </div>
     </div>
 </section>

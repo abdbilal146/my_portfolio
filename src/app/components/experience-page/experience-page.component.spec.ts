@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { ExperiencePageComponent } from './experience-page.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 describe('ExperiencePageComponent', () => {
   let component: ExperiencePageComponent;
@@ -8,7 +8,7 @@ describe('ExperiencePageComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ExperiencePageComponent]
+      imports: [ExperiencePageComponent, TranslateModule.forRoot()]
     })
     .compileComponents();
 
